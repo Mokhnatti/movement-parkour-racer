@@ -3,11 +3,12 @@
 > Движок: Unreal Engine 5.8. Камера: третье лицо. Сеттинг: киберпанк.
 > Принцип: лучшее — враг хорошего. Сначала фил, потом всё.
 
-> 🌐 **Живая страница (для друзей, закладка):** https://mokhnatti.github.io/movement-parkour-racer/
+> 🌐 **Две живые страницы** (GitHub Pages, источник = ветка `main`, папка `/docs`):
+> • Для друзей (главная, закладка): https://mokhnatti.github.io/movement-parkour-racer/ — `docs/index.html` (простое эмоциональное описание)
+> • Технический план: https://mokhnatti.github.io/movement-parkour-racer/dev.html — `docs/dev.html` (этот PLAN в вебе)
 > Репозиторий (публичный): https://github.com/Mokhnatti/movement-parkour-racer
-> **Как обновить страницу:** правим этот PLAN.md и/или `docs/index.html` →
-> `cd /home/ramil/projects/movement-parkour-racer && git add -A && git commit -m "…" && git push`
-> Через ~1 минуту страница обновится сама (GitHub Pages, источник = ветка `main`, папка `/docs`).
+> **Как обновить:** концептуальное решение → правим PLAN.md И `docs/dev.html` (синхронно). Если меняется суть для друзей — ещё и `docs/index.html`. Затем:
+> `cd /home/ramil/projects/movement-parkour-racer && git add -A && git commit -m "…" && git push` → через ~1 мин обновится само.
 
 ## 0. О ЧЁМ ИГРА
 
