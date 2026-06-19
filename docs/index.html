@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MOVEMENT PARKOUR RACER — что это за игра</title>
 <style>
-:root{--bg:#0a0a12;--bg2:#11111d;--cyan:#00f0ff;--mag:#ff2d95;--yel:#ffe14d;--tx:#d8dbe6;--mut:#7a7f99;--line:#23263a;}
+:root{--bg:#0a0a12;--bg2:#11111d;--cyan:#00f0ff;--mag:#ff2d95;--yel:#ffe14d;--red:#ff4d4d;--tx:#d8dbe6;--mut:#7a7f99;--line:#23263a;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font:17px/1.7 -apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--cyan);text-decoration:none}
@@ -15,7 +15,7 @@ a{color:var(--cyan);text-decoration:none}
 .switch a.off{color:var(--mut);margin-left:18px}
 header{padding:80px 20px 56px;text-align:center;background:radial-gradient(ellipse at top,rgba(0,240,255,.10),transparent 60%),radial-gradient(ellipse at bottom,rgba(255,45,149,.07),transparent 60%);border-bottom:1px solid var(--line)}
 header h1{font-size:clamp(32px,8vw,60px);font-weight:800;letter-spacing:1px;background:linear-gradient(90deg,var(--cyan),var(--mag));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.05}
-header .tag{color:var(--tx);margin-top:18px;font-size:clamp(16px,4vw,22px);font-weight:600}
+header .tag{color:#fff;margin-top:18px;font-size:clamp(18px,4.6vw,26px);font-weight:700}
 header .sub{color:var(--mut);margin-top:10px;font-size:clamp(14px,3.4vw,17px)}
 header .badges{margin-top:26px;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .badge{border:1px solid var(--cyan);color:var(--cyan);border-radius:999px;padding:6px 14px;font-size:12px;letter-spacing:.5px;text-transform:uppercase}
@@ -32,6 +32,7 @@ strong{color:#fff}
 .card.cyan{border-left:4px solid var(--cyan)}
 .card.mag{border-left:4px solid var(--mag)}
 .card.yel{border-left:4px solid var(--yel)}
+.card.red{border-left:4px solid var(--red)}
 .steps{counter-reset:s;list-style:none;margin:18px 0}
 .steps li{position:relative;padding:14px 0 14px 52px;border-bottom:1px dashed var(--line)}
 .steps li:last-child{border-bottom:none}
@@ -41,8 +42,12 @@ strong{color:#fff}
 .grid .card{margin:0}
 .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
 .tg{background:rgba(0,240,255,.08);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:14px}
+.fname{font-size:18px;font-weight:700;display:block;margin-bottom:4px}
+.r{color:var(--red)}.y{color:var(--yel)}.b{color:var(--cyan)}
 footer{padding:48px 20px;text-align:center;color:var(--mut);font-size:14px}
 .cta{display:inline-block;margin-top:10px;border:1px solid var(--mag);color:var(--mag);border-radius:999px;padding:10px 22px;font-weight:600}
+.pull{font-size:clamp(20px,5vw,28px);font-weight:700;color:#fff;text-align:center;line-height:1.4;margin:8px 0}
+.pull .accent-m{color:var(--mag)}
 </style>
 </head>
 <body>
@@ -55,66 +60,93 @@ footer{padding:48px 20px;text-align:center;color:var(--mut);font-size:14px}
 <header>
   <div class="wrap">
     <h1>MOVEMENT PARKOUR RACER</h1>
-    <div class="tag">Несёшься через неоновый город на бешеной скорости.</div>
-    <div class="sub">Скоростной паркур от третьего лица. Будто Ghostrunner встретил Trackmania.</div>
+    <div class="tag">Ты — призрак, которого замечают только мёртвым.</div>
+    <div class="sub">Наёмный убийца на бешеной скорости в неоновом городе будущего.<br>Скоростной паркур от третьего лица. Будто Mirror's Edge встретил Hitman.</div>
     <div class="badges">
       <span class="badge">ПК / Steam</span>
       <span class="badge m">В разработке</span>
-      <span class="badge m">Для спидранов</span>
+      <span class="badge m">Паркур + убийства</span>
     </div>
   </div>
 </header>
 
 <section><div class="wrap">
   <h2>Что это за игра</h2>
-  <p class="big">Ты бежишь по стенам, прыгаешь между крышами, скользишь под препятствиями и срываешься в безумные спуски через киберпанк-город. <strong>Чем чище проходишь — тем быстрее летишь.</strong></p>
-  <p class="big">Один забег — это несколько секунд чистого потока и адреналина. А потом ты сравниваешь своё время с друзьями и со всем миром, и хочешь <span class="accent">ещё один заход</span>. И ещё. И ещё.</p>
+  <p class="big">Ты — наёмный убийца в гигантском неоновом мегаполисе с летающими машинами. Но ты убиваешь не из-за угла и не из снайперки. <strong>Ты убиваешь на ходу, на полной скорости.</strong></p>
+  <p class="big">Бежишь по стенам, прыгаешь между небоскрёбами, влетаешь в окно прямо посреди вечеринки, делаешь своё дело и вылетаешь в другое окно — не сбавляя темпа. Ты несёшься так быстро, что охрана видит только труп. <span class="accent">Скорость — это и есть твоя невидимость.</span></p>
 </div></section>
 
 <section><div class="wrap">
-  <h2>Каково это — один забег</h2>
+  <h2>Каково это — одно задание</h2>
   <div class="card cyan">
-    <p>Стартуешь. Разгоняешься, запрыгиваешь на стену и бежишь прямо по ней. Спрыгиваешь, в воздухе — рывок, точно в горку, и вниз по склону <strong>скорость подскакивает</strong>. Впереди стена — летишь прямо в неё...</p>
-    <p>...и в последнюю долю секунды отталкиваешься. <span class="accent">Не разбился — отскочил с ускорением.</span> Внизу финиш, рядом полупрозрачный силуэт — это твой прошлый лучший заезд. Ты его обгоняешь на самом спуске.</p>
-    <p class="mut">Финиш. Новый рекорд. Палец уже жмёт «заново».</p>
+    <p>Тебе называют цель и где она примерно сейчас. Дальше — твоё дело. Ты выбираешь маршрут и срываешься с крыши.</p>
+    <p>Несёшься по фасадам, набирая скорость на спусках. Цель внизу, в здании, на тусовке — но она <strong>живая, она ходит</strong>. Замешкался на крыше — она уже ушла в другой зал, и ты на лету перестраиваешь путь, чтобы перехватить.</p>
+    <p>Влетаешь сквозь стекло, на скорости — <span class="accent-m">один точный удар</span> — и уже вылетаешь в окно с другой стороны. Снизу тебя только заметили. А ты уже на соседней крыше.</p>
+    <p class="mut">Чисто. Быстро. Красиво. Так, что хочется сделать это ещё раз — но ещё круче.</p>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <h2>В чём фишка</h2>
+  <h2>В чём фишки</h2>
   <div class="grid">
-    <div class="card"><strong class="accent">Скорость надо заработать</strong><p class="mut">Её не выдают. Копишь импульс за чистое прохождение, теряешь — за ошибки. Высоту превращаешь в скорость на спусках.</p></div>
-    <div class="card"><strong class="accent">Ошибся — но можешь спастись</strong><p class="mut">Летишь в стену? Успей оттолкнуться в нужный момент — сохранишь разгон. Не успел — потерял скорость или разбился.</p></div>
-    <div class="card"><strong class="accent">Свой путь</strong><p class="mut">Нет единственной «правильной» дороги. Безопасная длиннее, безумная — над пропастью. Мастер найдёт линию, которую никто не задумывал.</p></div>
-    <div class="card"><strong class="accent">Короткие забеги, сотни попыток</strong><p class="mut">Трасса — секунды. Но ты перепроходишь её снова и снова, выгрызая десятые доли.</p></div>
+    <div class="card"><strong class="accent">Скорость решает всё</strong><p class="mut">Чем быстрее летишь, тем раньше застанешь цель в удобный момент и тем меньше шансов, что тебя засекут. Замедлился — цель ускользнула, охрана насторожилась.</p></div>
+    <div class="card"><strong class="accent">Тихо или громко — твой выбор</strong><p class="mut">Можно пройти аккуратно и незаметно. А можно ломануться напролом: поднимется тревога, цель бросится бежать — и ты эффектно подрежешь её на скорости. Рискованно, но зрелищно.</p></div>
+    <div class="card"><strong class="accent">Цель живая</strong><p class="mut">Она не стоит на месте и ждёт. У неё свой распорядок, она ходит по зданию. Твоя скорость решает, где ты её застанешь — на балконе одну или в толпе под охраной.</p></div>
+    <div class="card"><strong class="accent">Разные задания</strong><p class="mut">Не только прямое убийство. Подложить бомбу в машину и свалить до взрыва. Подстроить несчастный случай. Украсть данные и унести ноги. Каждое задание играется по-своему.</p></div>
   </div>
 </div></section>
 
 <section><div class="wrap">
-  <h2>Соревнование</h2>
-  <p class="big">Главное — не пройти, а пройти <span class="accent-m">быстрее всех</span>.</p>
+  <h2>На кого ты работаешь</h2>
+  <p>Ты фрилансер — сам выбираешь, у кого брать заказы. В городе три силы, и у каждой свой стиль, своя музыка, своя одежда и свои жертвы. Работаешь на них — открываешь их шмот и поднимаешься в их мире.</p>
+  <div class="card red"><span class="fname r">🔴 Сопротивление</span><p class="mut">Бунтари против корпораций. Шлют тебя на продажных чиновников и зажравшихся боссов. Стиль — панк, граффити, самоделки. Под них в городе звучит злая гитара.</p></div>
+  <div class="card yel"><span class="fname y">🟡 Якудза</span><p class="mut">Деньги и бизнес. Убираешь тех, кто не платит и мешает делам. Стиль — азиатский неон, золото, татуировки. Музыка — восточная, тягучая.</p></div>
+  <div class="card cyan"><span class="fname b">🔵 Корпорация</span><p class="mut">Власть и холодный расчёт. Иногда цель — хороший человек, который просто им мешает. Стиль — стекло, лоск, дорого. Музыка — вылизанная классика.</p></div>
+  <p class="mut">За кого работаешь — тем и становишься. И у каждого пути своя концовка.</p>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Твой герой растёт вместе с тобой</h2>
+  <p class="big">Ты прокачиваешь персонажа и сам решаешь, каким убийцей быть. Любишь скорость — качаешь разгон и прыжок. Любишь хитрость — крюк-кошку, чтобы цепляться за здания, или способность проскользнуть за спиной охранника как ветер.</p>
+  <div class="card mag">
+    <p><strong>И у тебя есть дом.</strong> В начале ты на самом дне — убогая квартирка, окно выходит на помойку. Чем дальше проходишь, тем выше поднимаешься: новая квартира, выше этаж, лучше вид.</p>
+    <p>В финале ты на самой вершине — и из окна виден <span class="accent-m">весь город как на ладони</span>. Твоя берлога меняется под ту банду, на которую работаешь: гитары и граффити, азиатская роскошь или стеклянный лоск.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>За что ты вообще это делаешь</h2>
+  <div class="card cyan">
+    <p>Когда-то ты был лучшим. Потом тебя <strong>подставили</strong> и опустили на самое дно. Теперь ты заново поднимаешься — берёшь заказы, зарабатываешь, покупаешь информацию и по кусочкам выясняешь, <span class="accent">кто тебя предал</span>.</p>
+    <p class="mut">А в конце — финальное задание. По тому самому человеку.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>И ты не один</h2>
+  <p class="pull">Один и тот же контракт можно пройти <span class="accent-m">сотней разных способов</span>. И всегда найдётся кто-то, кто сделал это быстрее и красивее тебя.</p>
   <ul class="steps">
-    <li><strong>Гонка с призраками.</strong> Рядом бежит силуэт чемпиона — твой прошлый рекорд или забег друга. Догоняешь, обгоняешь.</li>
-    <li><strong>Таблицы рекордов.</strong> Твоё время против друзей и всего мира.</li>
-    <li><strong>Делись забегами.</strong> Скинул другу файл своего заезда — он загрузил и побежал против тебя.</li>
-    <li><strong>Смотри и разбирай.</strong> Можно пересмотреть любой заезд в замедлении с любого ракурса — понять, где потерял время.</li>
+    <li><strong>Соревнуйся с друзьями.</strong> Кто пройдёт задание быстрее и эффектнее — таблицы рекордов и звания.</li>
+    <li><strong>Смотри, как играют другие.</strong> Пересмотри чужой заезд, подсмотри его маршрут и прокачку — и сделай лучше.</li>
+    <li><strong>Создавай свои задания.</strong> Расставь цель и ловушки на готовых картах — и кинь друзьям: пусть попробуют пройти твой контракт.</li>
+    <li><strong>Наряжай героя.</strong> Куча одежды, причёсок и образов. Большую часть выбиваешь игрой, самое редкое — за отдельную красоту.</li>
   </ul>
 </div></section>
 
 <section><div class="wrap">
-  <h2>Для кого</h2>
-  <p>Для тех, кто залипал в <strong>Ghostrunner, Trackmania, Mirror's Edge, Neon White</strong>. Кто ловит кайф от чистого скоростного движения и от «ну ещё один разок, я смогу лучше».</p>
+  <h2>Для кого эта игра</h2>
+  <p>Для тех, кто не любит <strong>тормозить</strong>. Кто залипал в <strong>Ghostrunner, Mirror's Edge, Hitman, Cyberpunk 2077</strong> и проходил их агрессивно и на скорости. Кто ловит кайф от чистого движения, мастерства и «ну ещё разок, я смогу красивее».</p>
   <div class="tags">
-    <span class="tg">🏃 скорость</span><span class="tg">⚡ паркур</span><span class="tg">🏆 спидраны</span><span class="tg">🌆 киберпанк</span><span class="tg">👻 призраки-рекорды</span>
+    <span class="tg">🏃 скорость</span><span class="tg">🗡️ убийства</span><span class="tg">⚡ паркур</span><span class="tg">🌆 киберпанк</span><span class="tg">📈 прокачка</span><span class="tg">🏆 соревнование</span>
   </div>
 </div></section>
 
 <section><div class="wrap">
   <h2>Где сейчас проект</h2>
   <div class="card mag">
-    <p><strong>Стадия: концепт готов, дальше — прототип.</strong></p>
-    <p class="mut">Это личный проект, делается с любовью и без спешки, параллельно с основной работой. Сначала — самое важное и самое сложное: добиться, чтобы просто <em>бежать и прыгать</em> было кайфово само по себе. Всё остальное наслаивается потом.</p>
-    <p class="mut">Эта страница будет обновляться по мере того, как проект растёт. Заглядывай.</p>
+    <p><strong>Стадия: концепт. Идея продумана, дальше — прототип.</strong></p>
+    <p class="mut">Это личный проект, делается с любовью и без спешки, параллельно с основной работой. Самое первое и самое важное — добиться, чтобы просто <em>бежать, прыгать и нестись</em> было кайфово само по себе. Всё остальное, что описано выше, наслаивается потом.</p>
+    <p class="mut">Эта страница будет расти вместе с игрой. Заглядывай.</p>
     <a class="cta" href="dev.html">Любопытно «под капот»? → Технический план</a>
   </div>
 </div></section>
