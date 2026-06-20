@@ -244,13 +244,14 @@ UE 5.8 (вышел 17.06.2026) — официальный MCP-плагин в д
   - ⭐ **Niagara Examples Pack (50+ VFX, UE5.7, Fab)** — трейлы/спарки/пинги-маркеры/footstep FX/lightning → скорость-VFX (стрик-линии/ветер §3.3-кватер, маркер цели §5т.4). https://www.unrealengine.com/news/discover-over-50-free-niagara-systems-ready-to-use-in-unreal-engine-5-7
   - **MetaHuman** (бесплатно, <$1M) — резерв под стримерские лица §25 / база при fidelity-варианте (б) §14.2-тер. ⚠️ С UE 5.6+ ВСТРОЕН В ДВИЖОК, отдельной загрузки/кнопки НЕТ: при установке UE 5.8 отметить компонент «MetaHuman Creator Core Data» + включить плагин «MetaHuman Creator» в проекте. Плагины Maya/Houdini/Marvelous с metahuman.com — для других DCC, нам НЕ нужны. https://www.unrealengine.com/en-US/metahuman
   - **Megascans/Quixel** (бесплатно для UE) — текстуры/HDRI, одеть whitebox.
-  - **Ghost Replay System [Free for UE5]** — уже в §21.3 (призраки/реплеи).
+  - ⭐ **Ghost Replay System [Free for UE5]** — призраки/реплеи через transform/позу (§21.3), lightweight network-optimized, поддержка МОДУЛЬНЫХ персонажей (бьётся с §14.2-тер). https://www.fab.com/listings/2eb83102-6ea6-448a-a56e-64b905cc1651
 - **🆓 ПОЛЕЗНОЕ ПОД СЕТТИНГ (free/free-tier, забрать на всякий):**
   - **Quaternius — Downtown City MegaKit** (low-poly city, free) — дёшево под whitebox районов/трасс §5.
   - **Ovani Sound — Game SFX bundle** (free-tier) — SFX (ветер/шаги/удары); музыка отдельно через композитора §3.4-бис.
   - **Kenney.nl** — уже в §14.3.
 - 🚨 **Киберпанк-CITY киты (Modular CyberPunk City, CyberPunk/Sci-Fi 150+ мешей) — ПЛАТНЫЕ.** Не берём сейчас: геометрия трассы = геймплей (§14.4), whitebox первым, арт последним. Free low-poly (Quaternius) для whitebox хватит.
 - **Где искать дальше:** Fab → фильтр Price=Free; раздел limited-time https://www.fab.com/limited-time-free (Epic раздаёт пачками 2×/мес, дедлайны плавают).
+- 🛑 **ПО ХАЛЯВЕ — СТОП (решено 20.06.2026).** Забрано достаточное ядро: технология+анимация+призраки (Game Animation Sample, Niagara, Ghost Replay, Polyart) + MetaHuman встроен в UE. Дальше НЕ хламить: арт (города/персонажи/текстуры) не набирать сейчас — §14.4 whitebox первым, Megascans бесплатны в любой момент. Брать впредь только: дедлайн-халяву ИЛИ технологию/анимацию, которую иначе делать руками.
 
 14.4 ⚠️ Ассеты ≠ локации. Геометрия трассы = геймплей. Порядок: whitebox → проверил что бежать кайфово → одеваешь в ассеты. Качать пока ничего не надо.
 
