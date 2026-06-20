@@ -242,7 +242,7 @@ UE 5.8 (вышел 17.06.2026) — официальный MCP-плагин в д
 - **♾️ ПОСТОЯННО БЕСПЛАТНОЕ ОТ EPIC — БРАТЬ (прямо под нас):**
   - ⭐ **Game Animation Sample Project** (500+ анимаций, Motion Matching, parkour/traversal, работает с MetaHuman) — ПРЯМО наш анимслой (§НА РАДАРЕ: анимслой = Motion Matching). MUST. https://www.unrealengine.com/en-US/blog/game-animation-sample
   - ⭐ **Niagara Examples Pack (50+ VFX, UE5.7, Fab)** — трейлы/спарки/пинги-маркеры/footstep FX/lightning → скорость-VFX (стрик-линии/ветер §3.3-кватер, маркер цели §5т.4). https://www.unrealengine.com/news/discover-over-50-free-niagara-systems-ready-to-use-in-unreal-engine-5-7
-  - **MetaHuman** (бесплатно, <$1M) — резерв под стримерские лица §25 / база при fidelity-варианте (б) §14.2-тер. https://www.unrealengine.com/en-US/metahuman
+  - **MetaHuman** (бесплатно, <$1M) — резерв под стримерские лица §25 / база при fidelity-варианте (б) §14.2-тер. ⚠️ С UE 5.6+ ВСТРОЕН В ДВИЖОК, отдельной загрузки/кнопки НЕТ: при установке UE 5.8 отметить компонент «MetaHuman Creator Core Data» + включить плагин «MetaHuman Creator» в проекте. Плагины Maya/Houdini/Marvelous с metahuman.com — для других DCC, нам НЕ нужны. https://www.unrealengine.com/en-US/metahuman
   - **Megascans/Quixel** (бесплатно для UE) — текстуры/HDRI, одеть whitebox.
   - **Ghost Replay System [Free for UE5]** — уже в §21.3 (призраки/реплеи).
 - **🆓 ПОЛЕЗНОЕ ПОД СЕТТИНГ (free/free-tier, забрать на всякий):**
