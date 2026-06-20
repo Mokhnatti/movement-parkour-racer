@@ -233,6 +233,25 @@ UE 5.8 (вышел 17.06.2026) — официальный MCP-плагин в д
 - ambientCG — CC0, PBR-текстуры.
 - Kenney.nl — стилизованное.
 - Sketchfab — лицензии поштучно.
+14.3-бис **БЕСПЛАТНЫЕ АССЕТЫ ПОД ИГРУ — РЕСЁРЧ 20.06.2026 (забрать в библиотеку Fab/Epic «на всякий» — забранное остаётся НАВСЕГДА, лицензия standard = коммерция/продажа игры ОК, нельзя только перепродавать сам ассет).**
+ⓘ Принцип §14.4 в силе: качать в ПРОЕКТ рано (whitebox первым), но ЗАБРАТЬ бесплатное в библиотеку — можно сейчас, чтоб не упустить дедлайны.
+- **⏳ ДЕДЛАЙН 30.06.2026 (limited-time free Fab):**
+  - ✅ **Polyart — Modular Stylized Character Creator (Adventurer)** — рантайм-кастомизация перса (технология под §14.2-тер). ЗАБРАН Рамилем 20.06.
+  - **DOCKS VOL.2 – Powell Dock** (модульный low-poly) — стройматериал, не киберпанк, но бесплатно в библиотеку.
+  - White castle — нам не по сеттингу, скип.
+- **♾️ ПОСТОЯННО БЕСПЛАТНОЕ ОТ EPIC — БРАТЬ (прямо под нас):**
+  - ⭐ **Game Animation Sample Project** (500+ анимаций, Motion Matching, parkour/traversal, работает с MetaHuman) — ПРЯМО наш анимслой (§НА РАДАРЕ: анимслой = Motion Matching). MUST. https://www.unrealengine.com/en-US/blog/game-animation-sample
+  - ⭐ **Niagara Examples Pack (50+ VFX, UE5.7, Fab)** — трейлы/спарки/пинги-маркеры/footstep FX/lightning → скорость-VFX (стрик-линии/ветер §3.3-кватер, маркер цели §5т.4). https://www.unrealengine.com/news/discover-over-50-free-niagara-systems-ready-to-use-in-unreal-engine-5-7
+  - **MetaHuman** (бесплатно, <$1M) — резерв под стримерские лица §25 / база при fidelity-варианте (б) §14.2-тер. https://www.unrealengine.com/en-US/metahuman
+  - **Megascans/Quixel** (бесплатно для UE) — текстуры/HDRI, одеть whitebox.
+  - **Ghost Replay System [Free for UE5]** — уже в §21.3 (призраки/реплеи).
+- **🆓 ПОЛЕЗНОЕ ПОД СЕТТИНГ (free/free-tier, забрать на всякий):**
+  - **Quaternius — Downtown City MegaKit** (low-poly city, free) — дёшево под whitebox районов/трасс §5.
+  - **Ovani Sound — Game SFX bundle** (free-tier) — SFX (ветер/шаги/удары); музыка отдельно через композитора §3.4-бис.
+  - **Kenney.nl** — уже в §14.3.
+- 🚨 **Киберпанк-CITY киты (Modular CyberPunk City, CyberPunk/Sci-Fi 150+ мешей) — ПЛАТНЫЕ.** Не берём сейчас: геометрия трассы = геймплей (§14.4), whitebox первым, арт последним. Free low-poly (Quaternius) для whitebox хватит.
+- **Где искать дальше:** Fab → фильтр Price=Free; раздел limited-time https://www.fab.com/limited-time-free (Epic раздаёт пачками 2×/мес, дедлайны плавают).
+
 14.4 ⚠️ Ассеты ≠ локации. Геометрия трассы = геймплей. Порядок: whitebox → проверил что бежать кайфово → одеваешь в ассеты. Качать пока ничего не надо.
 
 ## 15. ПЛЕЙЛИСТ ДЛЯ ИЗУЧЕНИЯ ФИЛА
