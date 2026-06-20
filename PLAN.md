@@ -237,8 +237,8 @@ UE 5.8 (вышел 17.06.2026) — официальный MCP-плагин в д
 ⓘ Принцип §14.4 в силе: качать в ПРОЕКТ рано (whitebox первым), но ЗАБРАТЬ бесплатное в библиотеку — можно сейчас, чтоб не упустить дедлайны.
 - **⏳ ДЕДЛАЙН 30.06.2026 (limited-time free Fab):**
   - ✅ **Polyart — Modular Stylized Character Creator (Adventurer)** — рантайм-кастомизация перса (технология под §14.2-тер). ЗАБРАН Рамилем 20.06.
-  - **DOCKS VOL.2 – Powell Dock** (модульный low-poly) — стройматериал, не киберпанк, но бесплатно в библиотеку.
-  - White castle — нам не по сеттингу, скип.
+  - **DOCKS VOL.2 – Powell Dock** (103 меша, модульный, AAA, Dekogon) — стройматериал, не киберпанк, но бесплатно в библиотеку «на всякий». https://www.fab.com/listings/c1d714a2-288f-4bfa-a820-ec0406d51c8a
+  - **White castle** (модульный замок) — не по сеттингу, но бесплатно с дедлайном → в библиотеку. https://www.fab.com/listings/0ffccb05-d04a-4ad3-90ed-b8354d6ca7ce
 - **♾️ ПОСТОЯННО БЕСПЛАТНОЕ ОТ EPIC — БРАТЬ (прямо под нас):**
   - ⭐ **Game Animation Sample Project** (500+ анимаций, Motion Matching, parkour/traversal, работает с MetaHuman) — ПРЯМО наш анимслой (§НА РАДАРЕ: анимслой = Motion Matching). MUST. https://www.unrealengine.com/en-US/blog/game-animation-sample
   - ⭐ **Niagara Examples Pack (50+ VFX, UE5.7, Fab)** — трейлы/спарки/пинги-маркеры/footstep FX/lightning → скорость-VFX (стрик-линии/ветер §3.3-кватер, маркер цели §5т.4). https://www.unrealengine.com/news/discover-over-50-free-niagara-systems-ready-to-use-in-unreal-engine-5-7
