@@ -6,10 +6,11 @@
 <title>MOVEMENT PARKOUR RACER — технический план</title>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
 <style>
-:root{--bg:#0a0a12;--bg2:#11111d;--cyan:#00f0ff;--mag:#ff2d95;--yel:#ffe14d;--tx:#d8dbe6;--mut:#7a7f99;--line:#23263a;}
+:root{--bg:#0a0a12;--bg2:#11111d;--cyan:#00f0ff;--mag:#ff2d95;--yel:#ffe14d;--grn:#3ad97a;--red:#ff4d4d;--tx:#d8dbe6;--mut:#7a7f99;--line:#23263a;}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--tx);font:16px/1.6 -apple-system,Segoe UI,Roboto,sans-serif;-webkit-font-smoothing:antialiased}
 a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
 .wrap{max-width:900px;margin:0 auto;padding:0 18px}
 header{padding:64px 18px 40px;text-align:center;background:radial-gradient(ellipse at top,rgba(0,240,255,.08),transparent 60%),radial-gradient(ellipse at bottom,rgba(255,45,149,.06),transparent 60%);border-bottom:1px solid var(--line)}
 header h1{font-size:clamp(28px,7vw,52px);font-weight:800;letter-spacing:1px;background:linear-gradient(90deg,var(--cyan),var(--mag));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
@@ -20,7 +21,7 @@ header .badges{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap;justify-conte
 nav{position:sticky;top:0;background:rgba(10,10,18,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10;overflow-x:auto;white-space:nowrap}
 nav .wrap{display:flex;gap:18px;padding:13px 18px}
 nav a{color:var(--mut);font-size:13px;font-weight:600;flex:0 0 auto}
-nav a:hover{color:var(--cyan)}
+nav a:hover{color:var(--cyan);text-decoration:none}
 section{padding:44px 0;border-bottom:1px solid var(--line)}
 h2{font-size:clamp(20px,5vw,30px);color:#fff;margin-bottom:8px;display:flex;align-items:center;gap:10px}
 h2 .n{color:var(--cyan);font-family:ui-monospace,monospace;font-size:.6em;opacity:.8}
@@ -34,16 +35,29 @@ li::before{content:"▸";position:absolute;left:0;color:var(--cyan)}
 .card.cyan{border-left:3px solid var(--cyan)}
 .card.mag{border-left:3px solid var(--mag)}
 .card.yel{border-left:3px solid var(--yel)}
+.card.grn{border-left:3px solid var(--grn)}
+.card.red{border-left:3px solid var(--red)}
 .warn{color:var(--mag);font-weight:600}
 .ok{color:var(--cyan);font-weight:600}
+.good{color:var(--grn);font-weight:600}
+.bad{color:var(--red);font-weight:600}
 strong{color:#fff}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(max-width:640px){.grid{grid-template-columns:1fr}}
 .mermaid{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;margin:18px 0;text-align:center;overflow-x:auto}
 .chk li::before{content:"☐";color:var(--mut)}
 footer{padding:40px 18px;text-align:center;color:var(--mut);font-size:13px}
-.pill{display:inline-block;background:rgba(0,240,255,.1);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-family:ui-monospace,monospace;font-size:13px;color:var(--cyan)}
+.pill{display:inline-block;background:rgba(0,240,255,.1);border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-family:ui-monospace,monospace;font-size:12.5px;color:var(--cyan)}
+.lic{display:inline-block;border-radius:5px;padding:1px 7px;font-family:ui-monospace,monospace;font-size:11.5px;font-weight:700;letter-spacing:.3px;vertical-align:middle}
+.lic.ok{background:rgba(58,217,122,.12);border:1px solid var(--grn);color:var(--grn)}
+.lic.no{background:rgba(255,77,77,.12);border:1px solid var(--red);color:var(--red)}
+.lic.warn{background:rgba(255,225,77,.12);border:1px solid var(--yel);color:var(--yel)}
 .q{color:var(--mut);font-style:italic;border-left:2px solid var(--mag);padding-left:14px;margin:14px 0}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--yel);font-size:13px;text-transform:uppercase;letter-spacing:.4px}
+td .pill{font-size:11.5px}
+.t0{margin-top:0}
 </style>
 </head>
 <body>
@@ -54,25 +68,28 @@ footer{padding:40px 18px;text-align:center;color:var(--mut);font-size:13px}
 <header>
   <div class="wrap">
     <h1>MOVEMENT PARKOUR RACER</h1>
-    <div class="tag">Технический план разработки · скоростная паркур-гонка от 3 лица · киберпанк</div>
+    <div class="tag">Технический план разработки · RPG-экшен про гиперскоростного ассасина · киберпанк · от 3 лица</div>
     <div class="badges">
       <span class="badge">Unreal Engine 5.8</span>
       <span class="badge">PC / Steam</span>
       <span class="badge m">Game feel first</span>
-      <span class="badge m">Speedrun-площадка</span>
+      <span class="badge m">Контракты + спидран</span>
     </div>
   </div>
 </header>
 
 <nav><div class="wrap">
   <a href="#about">О игре</a>
+  <a href="#lore">Лор / персонажи</a>
   <a href="#order">Порядок</a>
   <a href="#feel">Game feel</a>
   <a href="#move">Движение</a>
-  <a href="#level">Трассы</a>
+  <a href="#level">Миссии</a>
   <a href="#replay">Реплеи</a>
   <a href="#platform">Платформа</a>
-  <a href="#tech">Тех-стек</a>
+  <a href="#stack">Инструменты / стек</a>
+  <a href="#conflicts">Конфликты</a>
+  <a href="#lic">Лицензии</a>
   <a href="#market">Рынок</a>
   <a href="#start">Старт</a>
 </div></nav>
@@ -80,89 +97,132 @@ footer{padding:40px 18px;text-align:center;color:var(--mut);font-size:13px}
 <section id="about"><div class="wrap">
   <h2><span class="n">00</span> О чём игра</h2>
   <div class="card cyan" style="font-size:18px;line-height:1.6">
-    <strong>В двух словах:</strong> несёшься через неоновый киберпанк-город на бешеной скорости — бежишь по стенам, прыгаешь между крышами, скользишь под препятствиями. Чем чище проходишь — тем быстрее летишь. Один забег = несколько секунд чистого потока и адреналина. А потом сравниваешь время с друзьями и всем миром: рядом бежит <span class="ok">призрак чемпиона</span>, и ты пытаешься его обогнать.
-    <div style="margin-top:12px;color:var(--mag)"><strong>Жанр одной строкой:</strong> скоростной паркур-рейсер от 3 лица — будто Ghostrunner встретил Trackmania. Игра про скорость, точность и желание пройти трассу ещё чище.</div>
+    <strong>В двух словах:</strong> ты гиперскоростной ассасин-киборг в неоновом мегаполисе. Берёшь контракты на заказные убийства и выполняешь их <strong>на полной скорости</strong> — несёшься по фасадам, влетаешь в окно, режешь цель не сбавляя темпа, вылетаешь в другое. Скорость = твоя невидимость: <span class="ok">призрак, которого видят только мёртвым</span>.
+    <div style="margin-top:12px;color:var(--mag)"><strong>Триангуляция без прямого конкурента:</strong> раутинг Hitman × движение Mirror's Edge / Ghostrunner × зрелищность AC Contracts, в киберпанке.</div>
   </div>
-  <p class="lead">Максимальная скорость, цена ошибки в долю секунды, накопление импульса за чистоту прохождения. Соревнование через призраков и лидерборды на сложных трассах — авторских и генерируемых.</p>
+  <p class="lead">Под боевиком — спидран-ядро: максимальная скорость, цена ошибки в долю секунды, накопление импульса за чистоту. Соревнование через призраков и сегментированные лидерборды. Контракты дают движению смысл, но НЕ заменяют его — сначала фил, потом содержание.</p>
   <div class="card cyan"><strong>Главный принцип:</strong> 80% успеха = <span class="ok">game feel</span>. Лучшее — враг хорошего. Сначала фил на серой болванке, потом всё. Скорость <strong>заработана</strong>, не выдана. Главный враг — не рынок, а заброс на полпути.</div>
   <h3>Референсы</h3>
   <ul>
-    <li>Ghostrunner — поток</li><li>Warframe — импульс</li><li>Trackmania — соревнование/дейлики</li>
-    <li>Neon White — скорость + лидерборды</li><li>Titanfall 2 — фил</li>
+    <li>Ghostrunner — поток · Mirror's Edge — чистота · Hitman — clockwork-цели/раутинг</li>
+    <li>Trackmania — соревнование/дейлики · Neon White — скорость+лидерборды · Titanfall 2 — фил</li>
+    <li>Cyberpunk 2077 — город/неон/вертикаль · Stellar Blade — арт тела</li>
   </ul>
+</div></section>
+
+<section id="lore"><div class="wrap">
+  <h2><span class="n">L</span> Лор и персонажи</h2>
+  <p class="lead">Лёгкая revenge-обёртка, клеит все системы. Подаётся прогрессией (брифинги/радио/растущая квартира), НЕ катсценами. Скипабельна для чистого флоу. Не раздувать.</p>
+
+  <div class="card mag"><h3 class="t0">Протагонист — личность ≠ тело</h3>
+    Герой — <strong>киборг</strong>: постоянна ЛИЧНОСТЬ (голос, почерк, история), тело = сменный корпус. «Киборг» — внутренняя условность: объясняет, ПОЧЕМУ бегаешь по стенам и видишь конусы, но НЕ диктует вид.
+    <ul>
+      <li><strong>Прошлое (решено):</strong> был независимым <strong>№1 города</strong> — фрилансер, к которому шли все три фракции, когда нужно «чисто». Прозвище за результат: после него ноль следов, ноль свидетелей.</li>
+      <li><strong>Подстава = обнулили кибернетику.</strong> Аугментации выжгли / в чёрный список → очнулся в утильном корпусе на дне. Один поворот объясняет всю механику: прокачка = заново вживляешь железо; голый класс = базовое шасси; перки-двери = новые импланты.</li>
+      <li><strong>Характер:</strong> немногословный, холодный, сухой чёрный юмор. Профессионал, у которого отняли всё и который спокойно идёт назад наверх по трупам.</li>
+      <li><strong>Прозвище</strong> — открыто (рабочее НОЛЬ: обнуление + нейтральность к фракциям + призрак/ничто).</li>
+    </ul>
+  </div>
+
+  <div class="card cyan"><h3 class="t0">Арт облика = Stellar Blade (не хром CP2077)</h3>
+    Стилизованно-красивый человек (М/Ж) в облегающем техвире, импланты <strong>намёком</strong> (под кожей), не торчащее железо. Cyberpunk 2077 = только город/неон/вертикаль; тело = Stellar Blade.
+    <ul>
+      <li><strong>Облик развязан с прокачкой</strong> — косметика 0 влияния на геймплей (не p2w по виду). «Обнулили железо» меняет способности, не внешку.</li>
+      <li><strong>Каталог тел, НЕ редактор-лепка.</strong> Готовые авторские тела + модульные части + покраска + смена голов/причёсок. Слайдеры геометрии НЕ делаем (соло-дорого).</li>
+      <li>Сигнатурный неон-акцент (цвет/глиф «подписи») — читается на скорости при любом облике.</li>
+    </ul>
+  </div>
+
+  <div class="card mag"><h3 class="t0">Антагонист — предатель-фиксер, который поднялся (решено)</h3>
+    Единственный, кому ты доверял — голос в наушнике годами, через кого шли контракты, кто держал твои данные. Не боец, а <strong>паук в сети</strong> (мозг/информация/контроль) — тематический контраст: ты тело и скорость, он информация.
+    <ul>
+      <li>Не просто продал — <strong>скоординировал сговор трёх фракций и занял твоё место</strong>, стал новым «королём» рынка убийств. Одно лицо = личное предательство + системный масштаб, без раздувания.</li>
+      <li><strong>Мотив — амбиция:</strong> устал быть голосом в ухе чужой легенды → хотел быть королём, а не служить королям.</li>
+      <li>Финал кампании = последний контракт по нему. Концовки-по-фракции: контракт выдаёт та фракция, с кем ты в наибольшей репе; под чьим флагом город после.</li>
+      <li><span class="warn">⚠️ Не путать:</span> предатель-фиксер (антагонист) ≠ информатор (текущий союзник-источник). По нити информаторов выходишь на то, что координатор сговора = твой бывший человек.</li>
+    </ul>
+  </div>
+
+  <div class="card yel"><h3 class="t0">Три фракции = эстетика + цели + мораль</h3>
+    Лор прост: ты фрилансер, сам выбираешь у кого брать заказы. Работаешь на фракцию → копишь репу → её скины + её цели + её музыка + её арсенал. «Перекачивать ради шмоток» = крючок удержания. Моральная серость — душа (валишь и «хороших»).
+    <div class="grid" style="margin-top:12px">
+      <div class="card red t0" style="margin:0"><strong class="bad">🔴 Сопротивление</strong><p style="color:var(--mut);margin:6px 0 0">Анти-корпорат. Цели: продажные корпораты/политики, диверсии. Панк/самоделки/партизан. Злая гитара.</p></div>
+      <div class="card yel t0" style="margin:0"><strong style="color:var(--yel)">🟡 Якудза</strong><p style="color:var(--mut);margin:6px 0 0">Деньги/бизнес. Цели: должники, кто мешает делам. Азиат-неон, золото, тату. Восточная музыка.</p></div>
+      <div class="card cyan t0" style="margin:0"><strong class="ok">🔵 Корпораты</strong><p style="color:var(--mut);margin:6px 0 0">Власть/цинизм. Цели и «хорошие», что мешают. Глянец, хай-тек, дорого. Лощёный оркестр.</p></div>
+    </div>
+  </div>
+
+  <div class="card grn"><h3 class="t0">Прокачка — вертикальная, два класса забега</h3>
+    Персонаж реально растёт (общий на кампанию). Опыт за УСПЕШНЫЕ миссии → очки → вручную в перки (ручная модель Borderlands/PoE, есть респек/ребилд).
+    <ul>
+      <li><strong>🔵 Голый класс</strong> — база, все равны, вечно честный спидран (хардкор-дисциплина) · <strong>🟣 Прокач (Open)</strong> — RPG-песочница, билды+часы. Два живых лидерборда = две игры на одной миссии.</li>
+      <li><strong>Перки-двери (главные):</strong> пробитие стекла/стен, дольше вал-ран, крюк-кошка → ОТКРЫВАЮТ маршруты, которых у голого нет. Статы (скорость/прыжок/разгон) — вторичны.</li>
+      <li><span class="warn">⚠️ Баланс-принцип:</span> голый мувсет проходит любую миссию сам (впритык). Перки = расширение/срезки, НЕ костыль «без них никак».</li>
+      <li>Страховка от grind-to-win: soft-cap, лиги по уровню+сезоны, на потолке вертикаль → билды (горизонталь).</li>
+    </ul>
+  </div>
 </div></section>
 
 <section id="order"><div class="wrap">
   <h2><span class="n">01</span> Порядок работы (железно)</h2>
-  <p class="lead">Каждый этап дешевле провалить, чем следующий. Не перепрыгивать.</p>
+  <p class="lead">Каждый этап дешевле провалить, чем следующий. Не перепрыгивать. Контракты/RPG — слой содержания ПОСЛЕ фила, не для болванки.</p>
   <div class="mermaid">
 flowchart TD
   A["1 · ФИЛ<br/>манекен в коробке + камера"] --> B["2 · Одна трасса<br/>таймер + рестарт + свой призрак"]
   B --> C["3 · Призраки + лидерборд<br/>(асинхрон)"]
   C --> D["4 · Модульная библиотека<br/>→ дейлики (генерация)"]
-  D --> E["5 · Тюнинг статов<br/>(опц.)"]
+  D --> E["5 · Контракты / RPG-слой<br/>цели, прокачка, фракции"]
   E --> F["6 · Realtime-сеть<br/>(в конце / никогда)"]
   style A fill:#11111d,stroke:#00f0ff,color:#fff
   style F fill:#11111d,stroke:#ff2d95,color:#fff
   </div>
-  <div class="card cyan"><h3 style="margin-top:0">Первый плейбл — вертикальный срез для друзей</h3>Минимум, чтобы фил читался, и ни байта больше. Цель — честный ответ «тянет ли перепройти»:<ul>
+  <div class="card cyan"><h3 class="t0">Первый плейбл — вертикальный срез для друзей</h3>Минимум, чтобы фил читался, и ни байта больше. Цель — честный ответ «тянет ли перепройти»:<ul>
     <li><strong>Одна трасса</strong> из gym-элементов: пропасть → вал-ран → мантл → спуск-слайд → финиш (серые блоки)</li>
     <li><strong>Спуск — кульминация в конце</strong> (забег кончается на пике ощущения)</li>
     <li><strong>Таймер + мгновенный рестарт</strong> (одна кнопка, без меню)</li>
     <li><strong>Свой призрак — со 2-го заезда, только лучший (PB)</strong> — один эталон, перезаписывается при побитии</li>
     <li><strong>Спидометр</strong> — виден разгон</li></ul>
-    НЕ входит: лидерборд, сеть, графика, 2-я трасса, звук кроме ветра. Вся петля «беги → ошибись/спасись → финишируй быстрее → ещё разок» в одном куске.</div>
+    НЕ входит: лидерборд, сеть, графика, 2-я трасса, контракты, звук кроме ветра.</div>
 </div></section>
 
 <section id="feel"><div class="wrap">
   <h2><span class="n">03</span> Game feel — обязательное</h2>
   <p class="lead">Расширять окна по времени/позиции, чтобы игра подыгрывала игроку.</p>
   <div class="grid">
-    <div class="card"><h3 style="margin-top:0">Прощающие окна</h3><ul>
+    <div class="card"><h3 class="t0">Прощающие окна</h3><ul>
       <li>Coyote time (~5 кадров после края)</li><li>Jump buffering</li><li>Corner correction</li><li>Halved-gravity на пике прыжка</li></ul></div>
-    <div class="card"><h3 style="margin-top:0">Камера продаёт скорость</h3><ul>
+    <div class="card"><h3 class="t0">Камера продаёт скорость</h3><ul>
       <li>FOV растёт со скоростью (главный трюк)</li><li>Наклон на вал-ране/поворотах</li><li>Motion blur на пике</li><li>Микро-тряска</li></ul></div>
   </div>
-  <div class="card mag"><h3 style="margin-top:0">Ядро — накопление скорости</h3><ul>
+  <div class="card mag"><h3 class="t0">Ядро — накопление скорости</h3><ul>
     <li>Импульс не сбрасывается между движениями</li>
     <li>Дольше без столкновений → быстрее (видимый индикатор)</li>
     <li>Врезался = потерял разгон</li>
     <li>Прыжок с платформы добавляет её импульс</li>
     <li>Мувсет: бег, прыжок, рывок (КД), вал-ран, слайд, вскарабкивание/мантл</li></ul></div>
-  <div class="card cyan"><h3 style="margin-top:0">Закон высоты = скорости</h3>Сохранение энергии, гравитация — друг на спуске:<ul>
+  <div class="card cyan"><h3 class="t0">Закон высоты = скорости</h3>Сохранение энергии, гравитация — друг на спуске:<ul>
     <li><strong>Вниз → разгон</strong> — слайд по склону, вал-ран по нисходящей стене</li>
     <li><strong>Горизонт → держим</strong> — ровный бег/вал-ран сохраняет импульс</li>
     <li><strong>Вверх → платим</strong> — подъём и мантл тратят накопленное</li></ul>
     Трасса = управление высотой: забрался дорого → слетел быстро. Высота = запасённая скорость (SSX, Tony Hawk, Dying Light).<br><span class="warn">⚠️</span> Разгон гравитацией FPS-зависим → лечим фикс-таймстепом (приоритет №1), иначе нечестные лидерборды.</div>
-  <div class="card mag"><h3 style="margin-top:0">Спасение по таймингу (wall-tech) — лестница под уровень игрока</h3>Столкновение не провал, а 4 опции от safe к pro (парирование как в Sekiro, для геометрии; рефы Titanfall, Mirror's Edge):<ul>
+  <div class="card mag"><h3 class="t0">Спасение по таймингу (wall-tech) — лестница под уровень игрока</h3>Столкновение не провал, а 4 опции от safe к pro (парирование как в Sekiro, для геометрии):<ul>
     <li><strong>1. Объезд</strong> → не берёшь риск, медленнее но цел. Всем</li>
     <li><strong>2. Блок (зажал)</strong> → теряешь часть, не всё. Без тайминга. Подушка новичку</li>
     <li><strong>3. Парирование (попал в окно)</strong> → сохранил всё + буст/перенаправление. Мастер режет углы НАРОЧНО</li>
     <li><strong>4. Лоб / ничего</strong> → полный сброс + микростан</li></ul>
-    Антиспам: окно парир. узкое — зажал заранее = только блок. Честность → фикс-таймстеп. <strong>Порог входа: Trackmania-модель</strong> — темпом не давим, скорость ради таблицы, не ради «пройти». Один контакт = 4 прочтения под 4 уровня. Отскок вверх → высота → скорость.</div>
-  <div class="card"><h3 style="margin-top:0">Обратная связь скорости — спидометр + сенсорика</h3>Два разных слоя, нужны оба:<ul>
-    <li><strong>Спидометр = инфо (мозг)</strong> — точное число для оптимизации линии. Must-have для спидрана (Trackmania, bhop-ups)</li>
-    <li><strong>Сенсорика = ощущение (тело)</strong> — FOV-кик + ветер (свист растёт со скоростью, стрик-линии/частицы мимо камеры, искажение краёв) + тряска + motion blur</li></ul>
-    ⚠️ Только спидометр → втыкаешь в цифру, не в мир. Дополняет сенсорику, не заменяет.<br>
-    <strong>Приборка спидранера</strong> (спидометр + импульс/чистота + таймер + сплиты) — опциональна: трейлер/новичок прячут (чистый кадр), оптимизатор разворачивает. Бонус: цифра растёт на спуске / падает на подъёме — обучает невидимым законам.</div>
-  <div class="card cyan"><h3 style="margin-top:0">Gym-полигон для фила (этап 1 — не пустая коробка)</h3>По одному серому эталонному элементу на каждую механику, иначе нечего тюнить:<ul>
-    <li><strong>Пропасть</strong> → прыжок, рывок, coyote time, buffer</li>
-    <li><strong>Стена сбоку</strong> → вал-ран</li>
-    <li><strong>Вертикальная стена / уступ</strong> → вскарабкивание / мантл</li>
-    <li><strong>Горка-рампа</strong> → слайд + импульс вниз</li>
-    <li><strong>Серия платформ</strong> → чейнинг прыжков, сохранение импульса</li></ul>
-    Эти элементы — первые кирпичи модульной библиотеки трасс. Gym перерастает в стройматериал, не выкидывается.</div>
-  <div class="card cyan"><h3 style="margin-top:0">Рывок по КД = тактический ресурс</h3>Ценен не сам рывок, а тайминг траты:<ul>
-    <li>Тайминг важнее дистанции — путь длиннее выгоден, если ставит рывок в идеальную точку</li>
-    <li>Комбо: рывок в слайд / с горки &gt;&gt; рывок «в пустоту» → линия строится вокруг связок</li>
-    <li>Растратил не вовремя → ждёшь КД, теряешь темп</li></ul>
-    Развилки риск/награда рождаются сами, из КД + геометрии. Игрок считает тайминги.</div>
-  <div class="card mag"><h3 style="margin-top:0">Музыка и звук</h3><ul>
-    <li><strong>Тон: жёсткая электроника</strong> — darksynth / DnB / industrial (школа Ghostrunner: Daniel Deluxe, Dan Terminus). Не эмбиент</li>
-    <li><strong>Adaptive, не ритм-игра</strong> — музыка реагирует на игрока: слои нарастают с импульсом, расцветают на чистом разгоне, проседают на ошибке. Попадать в бит НЕ надо (убило бы свободу линий)</li>
-    <li><strong>Музыка = второй индикатор импульса ушами</strong> — расцвела = в потоке, оборвалась = облажался</li>
-    <li>🚨 Клиентская, на детерминизм не влияет. 🚨 Болванку тестим БЕЗ музыки (маскирует кривой фил)</li>
-    <li>Продакшн: Рамиль спросит знакомого музыканта. Не бюджетный блокер</li></ul></div>
+    Антиспам: окно парир. узкое. <strong>Порог входа: Trackmania-модель</strong> — темпом не давим, скорость ради таблицы. Один контакт = 4 прочтения под 4 уровня.</div>
+  <div class="card"><h3 class="t0">Обратная связь скорости — спидометр + сенсорика</h3>Два разных слоя, нужны оба:<ul>
+    <li><strong>Спидометр = инфо (мозг)</strong> — точное число для оптимизации линии. Must-have для спидрана</li>
+    <li><strong>Сенсорика = ощущение (тело)</strong> — FOV-кик + ветер (свист растёт, стрик-линии мимо камеры) + тряска + motion blur</li></ul>
+    ⚠️ Только спидометр → втыкаешь в цифру, не в мир. Дополняет сенсорику, не заменяет. Приборка опциональна (трейлер прячет, оптимизатор разворачивает).</div>
+  <div class="card cyan"><h3 class="t0">Gym-полигон для фила (этап 1 — не пустая коробка)</h3>По одному серому эталонному элементу на каждую механику:<ul>
+    <li><strong>Пропасть</strong> → прыжок, рывок, coyote, buffer · <strong>Стена сбоку</strong> → вал-ран</li>
+    <li><strong>Вертикальная стена/уступ</strong> → мантл · <strong>Горка-рампа</strong> → слайд+импульс · <strong>Серия платформ</strong> → чейнинг</li></ul>
+    Эти элементы — первые кирпичи модульной библиотеки трасс. Gym перерастает в стройматериал.</div>
+  <div class="card mag"><h3 class="t0">Музыка и звук</h3><ul>
+    <li><strong>Жёсткая электроника</strong> — darksynth/DnB/industrial (школа Ghostrunner). Не эмбиент</li>
+    <li><strong>Adaptive, не ритм-игра</strong> — слои нарастают с импульсом, проседают на ошибке. В бит попадать НЕ надо</li>
+    <li>🚨 Клиентская, на детерминизм не влияет. 🚨 Болванку тестим БЕЗ музыки (маскирует кривой фил)</li></ul></div>
   <p class="q">«Игра должна научить тебя быть быстрым» — Neon White. Скорость как награда: Tribes, Quake, Titanfall, Ultrakill.</p>
 </div></section>
 
@@ -170,33 +230,36 @@ flowchart TD
   <h2><span class="n">04</span> Движение — развилка решена</h2>
   <div class="mermaid">
 flowchart LR
-  S["Этап 1: ФИЛ"] --> CMC["CMC-subclass<br/>быстро · готовые референсы<br/>(ExtendedCharacterMovement)"]
-  CMC --> Q{"Фил найден.<br/>Хватает честности<br/>от фикс-таймстеп-обёртки?"}
-  Q -->|Да| STAY["Остаёмся на CMC"]
-  Q -->|Нет| MOV["Миграция на Mover 2.0<br/>(детерминизм, Beta в 5.8)"]
-  style CMC fill:#11111d,stroke:#00f0ff,color:#fff
+  S["Этап 1: ФИЛ"] --> PB["PBCharacterMovement (MIT)<br/>Source-импульс: bhop/слайд/рампы<br/>+ wall-run строим поверх"]
+  PB --> Q{"Фил найден.<br/>Детерминизма от Substepping<br/>хватает для лидербордов?"}
+  Q -->|Да| STAY["Остаёмся на CMC<br/>+ свой фикс-аккумулятор"]
+  Q -->|Нет| MOV["Миграция на Mover 2.0<br/>(async, детерминизм by design)"]
+  style PB fill:#11111d,stroke:#00f0ff,color:#fff
   style MOV fill:#11111d,stroke:#ff2d95,color:#fff
   </div>
-  <div class="card cyan">Переписать с готовым эталоном (цифры + ощущение) <strong>в разы проще</strong>, чем искать фил вслепую на сыром Mover. CMC = рабочий fallback. Фил-цифры в DataAsset → переносятся куда угодно.</div>
-  <div class="card mag"><span class="warn">🚨 Критично:</span> CMC AddForce / импульс с платформ <strong>зависят от FPS</strong> → дуги прыжков разные на железе = нечестные лидерборды. Лечить фикс-таймстепом сразу. Детерминизм — приоритет №1 для спидран-площадки.</div>
+  <div class="card cyan"><strong>База: <a href="https://github.com/ProjectBorealis/PBCharacterMovement">PBCharacterMovement</a></strong> <span class="lic ok">MIT</span> — готовый Source-style CMC-сабкласс (bunnyhop, strafe-boost, surf, ramp-slide, crouch-slide): буквально «скорость заработана» в безопасном MIT-коде. Бинарники под 5.5 → пересобрать под 5.8 (нужен C++-проект). Wall-run/мантл строим поверх. Фил-цифры в DataAsset → переносятся куда угодно.</div>
+  <div class="card mag"><span class="warn">🚨 Критично:</span> CMC AddForce / импульс с платформ <strong>зависят от FPS</strong> → дуги прыжков разные на железе = нечестные лидерборды. Substepping физики этого НЕ чинит (двигает капсулу кинематически на game-tick) — нужен свой фикс-аккумулятор, либо миграция на Mover 2.0. Детерминизм — приоритет №1.</div>
+  <div class="card red"><span class="bad">⛔ Выкинуто:</span> <strong>ExtendedCharacterMovement</strong> <span class="lic no">GPL-3.0</span> — копилефт заставил бы открыть исходники всей игры = смерть платному релизу. Только читать как идею, код НЕ копировать. Это была мина в старом плане.</div>
 </div></section>
 
 <section id="level"><div class="wrap">
-  <h2><span class="n">05</span> Трассы — чекпоинты-якоря + свобода</h2>
-  <div class="card cyan"><strong>Часть 1 = закрытые трассы-уровни</strong> (не открытый мир). Почему: катим контент частями · каждую карту доводим персонально до кайфа · на закрытых трассах отрабатываются основы — все великие гонки начинали так. Цель: пара трасс, по которым реально интересно бегать.</div>
-  <div class="card"><strong>Лестница роста: трасса → район → город.</strong> Накопились трассы в одном сеттинге → сшиваем в <strong>район</strong> (мини-открытый мир, старые трассы = маршруты внутри + связки). Районы стыкуются → вырастает город. Контент катится частями, риск растёт плавно, модули §6 переиспользуются.</div>
-  <div class="card mag"><strong>Открытый город — видение части 2</strong> (если доживём): трасса = A→Б по якорям, поиск маршрута на игроках (модель Mirror's Edge Catalyst). Технически — World Partition (UE 5.8) + та же модульная библиотека. Сейчас не строим: масштаб мира убил бы отработку основ.</div>
-  <p class="lead">Площадка для спидранов → emergent-маршруты это ФИЧА, не баг.</p>
-  <div class="card mag"><h3 style="margin-top:0">Смерть и фейл-стейты</h3>Без смерти у риска нет цены. Два типа фейла:<ul>
-    <li><strong>Мягкий</strong> — лоб в стену / промах wall-tech → потеря импульса + микростан, бежишь дальше</li>
-    <li><strong>Жёсткий</strong> — пропасть / смертельная зона (обрыв, лазеры) → мгновенный рестарт</li></ul>
-    Смерть дешёвая и мгновенная (без загрузок — цикл «ещё разок» священен). Смерть-зоны — атрибут РИСКОВЫХ линий: безопасная линия без пропастей (медленно, но не убивает), срез над бездной = ставка «влетел или сдох».</div>
+  <h2><span class="n">05</span> Миссии — контракты + трассы</h2>
+  <div class="card cyan"><strong>Часть 1 = закрытые миссии-уровни</strong> (не открытый мир). Катим контент частями, каждую доводим до кайфа, на закрытых отрабатываются основы. Лестница роста: <strong>трасса → район → город</strong>. Открытый город — видение части 2 (World Partition), сейчас не строим.</div>
+  <div class="card mag"><h3 class="t0">Дыхание миссии — 3 такта</h3><ul>
+    <li><strong>Подход</strong> — паркур по крышам, копишь высоту=скорость, выбор пути (тихий-долгий / опасный-быстрый)</li>
+    <li><strong>Килл</strong> — влетел в окно → цель <strong>живая, по расписанию</strong> (clockwork как Hitman) → перехват → стильный вход → kill. Был быстр — взял на балконе; затупил — цель ушла, перестраиваешь дугу на лету</li>
+    <li><strong>Отход</strong> — наследил → тревога/снайперы держат зоны → уход паркуром (НЕ перестрелка, мы атакующий призрак)</li></ul>
+    Здание прошивается насквозь: влетел-резанул-вылетел = 2-3 сек. Трекер цели (силуэт сквозь стены) — честность, опознаёшь ещё с крыши.</div>
   <div class="grid">
-    <div class="card cyan"><h3 style="margin-top:0">✅ Скилл-срез — святое</h3>Через механики: накопил импульс, тормознул ради разгона, безумный прыжок, хитрый маршрут. <strong>Не трогаем.</strong> Душа спидрана.</div>
-    <div class="card mag"><h3 style="margin-top:0">❌ Чит-срез — убираем</h3>Эксплойт коллизии, физ-баг, телепорт сквозь геометрию.</div>
+    <div class="card cyan"><h3 class="t0">✅ Скилл-срез — святое</h3>Через механики: накопил импульс, тормознул ради разгона, безумный прыжок. <strong>Не трогаем.</strong> Чекпоинты = якоря (где побывать), не рельсы (как собрать).</div>
+    <div class="card mag"><h3 class="t0">❌ Чит-срез — убираем</h3>Эксплойт коллизии, физ-баг, телепорт сквозь геометрию.</div>
   </div>
-  <div class="card yel"><strong>Чекпоинты = якоря, не рельсы:</strong> «здесь надо реально побывать на скорости», но НЕ «как собрать». Между якорями — полная свобода маршрута. 3 линии (безопасная/быстрая/безумная) — подсказки-ориентиры. Мастер найдёт 4-ю — это победа дизайна.</div>
-  <p class="q">Философия Quake/Titanfall/Ghostrunner: bunny hop и rocket jump родились багами → стали ядром жанров. Патчить только то, что ломает физику насквозь.</p>
+  <div class="card yel"><h3 class="t0">Угрозы + детект (киборг-зрение подсвечивает)</h3><ul>
+    <li>Камеры (статичные конусы), снайперы (линии огня), дроны (динамичные конусы), охрана (патрули). EMP на ходу = окно, не отмена угрозы</li>
+    <li>Детект через ВИДИМЫЕ конусы, детерминированы → заучиваемы (clockwork, спидран-friendly). Тревога мгновенная</li>
+    <li>Соперники-ассасины (AI-боты, отдельный режим+таблица): оспариваемый контракт, тейкдаун соперника через те же конусы</li></ul></div>
+  <div class="card mag"><h3 class="t0">Смерть и фейл</h3>Мягкий (лоб/промах wall-tech → потеря импульса), жёсткий (пропасть/смерть-зона → мгновенный рестарт). Упустить цель = фейл ИЛИ грязная погоня. Смерть дешёвая, цикл «ещё разок» священен.</div>
+  <p class="q">Типы контрактов: прямой килл · саботаж/бомба (таймер-эскейп) · несчастный случай · кража/перехват (паркур-heist) · множественная цель · окно времени. Заказчик диктует «тихо/громко».</p>
 </div></section>
 
 <section id="replay"><div class="wrap">
@@ -212,58 +275,117 @@ flowchart TD
   style G fill:#11111d,stroke:#ff2d95,color:#fff
   </div>
   <ul>
-    <li><strong>Бэкенд:</strong> старт на Steam Leaderboards + UGC-призраки. Рекорд без смотрибельного реплея не засчитывается (честность через верификацию, как speedrun.com). Свой сервер — потом, если упрёмся.</li>
-    <li><strong>Театр повторов:</strong> смотришь топ-заезд изнутри движка с любого ракурса, замедление, разбор линии — сильнее видео.</li>
-    <li><strong>speedrun.com</strong> — поздняя витрина (read-only API), когда комьюнити заведёт страницу.</li>
+    <li><strong>Бэкенд:</strong> Steam Leaderboards + UGC-призраки. Рекорд без смотрибельного реплея не засчитывается (честность через верификацию, как speedrun.com).</li>
+    <li><strong>Театр повторов:</strong> смотришь топ-заезд изнутри движка с любого ракурса, замедление, разбор линии.</li>
   </ul>
-  <div class="card cyan"><h3 style="margin-top:0">Режим разбора забега — «где проебался»</h3>Аналитика поверх скраба, почти бесплатна (данные призрака уже пишутся):<ul>
-    <li>Замедление + покадровка + свободная камера</li>
-    <li><strong>График скорости на таймлайне</strong> — видно, где спидометр просел = где потерял темп</li>
-    <li><strong>Маркеры потери импульса</strong> — точки, где влетел в стену / промазал wall-tech. Подсвечено «здесь проебался»</li>
-    <li><strong>Дельта к PB-призраку</strong> — наложить заезд на лучший бок о бок: где отстал, где выиграл</li></ul>
-    «Проиграл и не понял почему» → «вижу, на спуске недокрутил». Не в первый плейбл — приходит со слоем реплеев.</div>
+  <div class="card cyan"><h3 class="t0">Режим разбора — «где проебался»</h3>Аналитика поверх скраба, почти бесплатна (данные призрака уже пишутся):<ul>
+    <li>График скорости на таймлайне — где спидометр просел = где потерял темп</li>
+    <li>Маркеры потери импульса (влетел в стену / промазал wall-tech)</li>
+    <li>Дельта к PB-призраку · виден БИЛД соперника (скопируешь сборку + технику)</li></ul>
+    Билды ограниченные → узнаваемые архетипы (скоростной/боевой/стелс), читаемая мета.</div>
 </div></section>
 
 <section id="platform"><div class="wrap">
-  <h2><span class="n">23</span> Платформа и спидран-площадка</h2>
+  <h2><span class="n">23</span> Платформа и честность</h2>
   <div class="grid">
-    <div class="card cyan"><h3 style="margin-top:0">PC-only, Steam</h3><ul>
+    <div class="card cyan"><h3 class="t0">PC-only, Steam</h3><ul>
       <li>Консоли — нет (спидран-сообщество на ПК, сертификация не нужна)</li>
-      <li>Идентичность = площадка для спидранов. Рекорды святы</li>
-      <li><strong>Детерминизм — приоритет №1</strong> (не «достаточно честно»): нечестная физика убьёт доверие = смерть площадки</li></ul></div>
-    <div class="card"><h3 style="margin-top:0">Управление</h3><ul>
-      <li><strong>Клава+мышь — основа.</strong> Весь дизайн, баланс и спидран-мета под неё</li>
-      <li><strong>Геймпад — поддерживается, но не затачиваем.</strong> Работает «чтоб было», рекорды/тайминги под него не оптимизируем</li></ul></div>
+      <li>Идентичность = RPG-ассасин с контрактами+прокачкой; спидран-слой внутри</li>
+      <li><strong>Детерминизм — приоритет №1.</strong> Лидерборды СЕГМЕНТИРОВАНЫ по лиге/капу (честно внутри сегмента), верифицируемые реплеи</li></ul></div>
+    <div class="card"><h3 class="t0">Управление</h3><ul>
+      <li><strong>Клава+мышь — основа.</strong> Весь дизайн, баланс, спидран-мета под неё + ребинды</li>
+      <li><strong>Геймпад</strong> — поддерживается, но не затачиваем</li></ul></div>
   </div>
-  <div class="card mag"><h3 style="margin-top:0">Обязательные спидран-фичи (заложить в архитектуру)</h3><ul>
-    <li>Мгновенный рестарт (1 кнопка, 0 загрузки)</li>
-    <li>Встроенный таймер + splits (отсечки)</li>
-    <li>Призрак своего PB в реальном времени</li>
-    <li>Practice mode (рестарт с сегмента)</li>
+  <div class="card mag"><h3 class="t0">Обязательные спидран-фичи (в архитектуру сразу)</h3><ul>
+    <li>Мгновенный рестарт (1 кнопка, 0 загрузки) · встроенный таймер + splits</li>
+    <li>Призрак своего PB в реальном времени · practice mode (рестарт с сегмента)</li>
     <li>Верифицируемые смотрибельные реплеи рекордов</li></ul>
     Steam даёт почти бесплатно: лидерборды, облако, воркшоп.</div>
 </div></section>
 
-<section id="tech"><div class="wrap">
-  <h2><span class="n">12-13</span> Тех-стек и Claude/MCP</h2>
-  <ul>
-    <li><strong>UE 5.8, НЕ UE6</strong> — UE6 сырой/ломающий до 2027+. Большие карты решены в 5.8 (World Partition).</li>
-    <li><strong>Фиксированный таймстеп</strong> физики — заложить сразу (честные лидерборды).</li>
-    <li><strong>World Partition</strong> — авто-стриминг, длина трассы почти не влияет на FPS. Lumen/Nanite на болванке выкл (300+ FPS).</li>
-  </ul>
-  <div class="card mag"><span class="warn">MCP-поправка:</span> официальный плагин UE 5.8 <strong>НЕ умеет PIE/скриншоты/консоль</strong> из коробки (только спавн актёров/материалы/автотесты). Для «Claude играет → смотрит → крутит фил» нужен сторонний сервер (StraySpark с PIE / UnrealClaude с захватом вьюпорта) или свой toolset. <span class="warn">allowlist обязателен, auto-approve ВЫКЛ.</span></div>
+<section id="stack"><div class="wrap">
+  <h2><span class="n">21</span> Инструменты и стек</h2>
+  <p class="lead">С этой таблицы стартует проект. Все строки коммерчески чисты для платного Steam (детали → <a href="#lic">Лицензии</a>). 🚨 Перед любым новым ассетом в код — проверять лицензию.</p>
+  <table>
+    <tr><th>Подсистема</th><th>Берём</th><th>Лиц.</th><th>Роль / нюанс</th></tr>
+    <tr><td><strong>Движение</strong></td><td><a href="https://github.com/ProjectBorealis/PBCharacterMovement">PBCharacterMovement</a></td><td><span class="lic ok">MIT</span></td><td>Импульсная база (Source). Пересобрать под 5.8, нужен C++. Wall-run поверх</td></tr>
+    <tr><td><strong>Детерминизм</strong></td><td>Substepping + Async Physics</td><td><span class="lic ok">UE</span></td><td>Встроено (5.4+). Без форков движка. ⚠️ CMC всё равно нужен свой фикс-аккумулятор</td></tr>
+    <tr><td><strong>Анимации</strong></td><td>GASP + Mixamo</td><td><span class="lic ok">UE</span> <span class="lic ok">RF</span></td><td>500+ аним, Motion Matching, traversal. Mixamo — добор. Ретаргет на Mannequin</td></tr>
+    <tr><td><strong>Лидерборды</strong></td><td><a href="https://github.com/HakanCopur/steam-achievements-leaderboards">SteamSAL</a></td><td><span class="lic ok">MIT</span></td><td>Upload Score With UGC = гост-файл к рекорду. Нужен Online Subsystem Steam</td></tr>
+    <tr><td><strong>Гост/реплей</strong></td><td>Ghost Replay System · <a href="https://github.com/msaljuk/AutoReplay">AutoReplay</a> (backup)</td><td><span class="lic ok">Fab</span> <span class="lic ok">MIT</span></td><td>Transform/поза-запись (устойчива к недетерминизму). Проверить на 5.8</td></tr>
+    <tr><td><strong>Персонаж</strong></td><td>MetaHuman + Techwear/Sci-Fi Outfits · Polyart (стилизов.)</td><td><span class="lic ok">UE</span> <span class="lic ok">Fab</span></td><td>MetaHuman = основная ветка (Stellar-Blade). Techwear под скинтайт-вайб</td></tr>
+    <tr><td><strong>Город</strong></td><td>Quaternius (whitebox) → City Sample (арт)</td><td><span class="lic ok">CC0</span> <span class="lic ok">UE</span></td><td>Whitebox low-poly первым. City Sample ~90 ГБ — поздно, решать перф</td></tr>
+    <tr><td><strong>VFX</strong></td><td>Niagara Examples Pack</td><td><span class="lic ok">UE</span></td><td>Трейлы/искры/пинги-маркеры/footstep. Speed-VFX и ветер</td></tr>
+    <tr><td><strong>Звук</strong></td><td>Sonniss GDC 2026 + Kenney CC0</td><td><span class="lic ok">RF</span> <span class="lic ok">CC0</span></td><td>Ветер скорости/импакты. Музыка — отдельно через композитора</td></tr>
+    <tr><td><strong>HUD</strong></td><td>HUD Links + UMG руками поверх CC0</td><td><span class="lic ok">Fab</span></td><td>Пинг-маркеры цели. Спидометр/сплиты собираем сами</td></tr>
+  </table>
+
+  <div class="grid">
+    <div class="card cyan"><h3 class="t0">A. Инструменты разработки (как работаем)</h3><ul>
+      <li><strong>MCP/Claude-петля</strong> «играл→смотрел→крутил»: офиц. ModelContextProtocol + сторонний (StraySpark PIE / UnrealClaude вьюпорт) для PIE/скринов. <span class="warn">Allowlist обязателен, auto-approve ВЫКЛ</span></li>
+      <li><strong>🎛 Тюнинг-стенд = главный инструмент этапа 1:</strong> DataAsset + CVars + Console Variables Editor + CSV Profiler. Без него нечем крутить фил</li>
+      <li><strong>📦 Git LFS — настроить ДО первого ассета</strong> (.uasset/.umap бинарные)</li>
+      <li><strong>🎮 Enhanced Input</strong> (встроен) — кейбинды + ребинды (спидран)</li></ul></div>
+    <div class="card mag"><h3 class="t0">B. Свои подсистемы (пишем сами, не ассет)</h3><ul>
+      <li><strong>⏱ Таймер + сплиты + чекпоинты-якоря + рестарт</strong> — ядро первого плейбла</li>
+      <li><strong>💾 SaveGame</strong> — на нём весь RPG: прокачка, 3 валюты, репа фракций, косметика, PB-госты</li>
+      <li><strong>🤖 AI целей/охраны</strong> (поздно): clockwork-расписания, конусы детекта, соперники. State Tree + сплайн-скрипты</li>
+      <li><strong>📊 Профилирование</strong> (Unreal Insights / CSV) — FPS-требование жанра, баланс линий логами</li></ul></div>
+  </div>
+  <div class="card yel"><strong>🎯 Критично для этапа 1:</strong> тюнинг-стенд · Git LFS · Enhanced Input · таймер+рестарт · PBCharacterMovement. Остальное — позже.</div>
+</div></section>
+
+<section id="conflicts"><div class="wrap">
+  <h2><span class="n">21.9</span> Конфликты инструментов</h2>
+  <p class="lead">Стек — не просто список: инструменты дерутся за одно и то же. ⭐ = решать на болванке ПЕРВЫМ.</p>
+  <div class="card mag"><h3 class="t0">⭐ 1. PBCharacterMovement ↔ GASP — кто владеет движением</h3>
+    Оба претендуют на управление персонажем: PBCMC = физика/импульс, GASP = свой Character с Motion-Matching-traversal (мантл/climb на своём движении). Нельзя взять оба вслепую.<br>
+    <strong class="good">Решение:</strong> физику владеет PBCMC, GASP низводится до <strong>анимслоя</strong> (AnimBP + Motion Matching читают скорость/состояние, играют позы), его управление движением отключаем. <span class="warn">⚠️ Цена:</span> traversal GASP завязан на его CMC → мантл/climb переносим руками. Проверить ПЕРВЫМ — развилка всего фила.</div>
+  <div class="card mag"><h3 class="t0">⭐ 2. Детерминизм ↔ CMC — ловушка</h3>
+    Включить Substepping/Async Physics НЕ делает CMC детерминированным: Substepping для Chaos-симуляции, а CMC двигает капсулу кинематически на game-tick → остаётся FPS-зависимым. Нужен <strong>свой фикс-аккумулятор</strong> вокруг тика движения, либо миграция на <strong>Mover 2.0</strong> (async, детерминирован by design) после нахождения фила. Не самообман «включил Substepping = честно».</div>
+  <div class="grid">
+    <div class="card"><strong>3. Motion Matching ↔ детерминизм</strong><p style="color:var(--mut);margin:6px 0 0">Анимация = клиентский визуал, на тайминги не влияет — ЕСЛИ движение не root-motion-driven. Правило: капсулу двигает физика, анимация поверх.</p></div>
+    <div class="card"><strong>4. MetaHuman-скелет ↔ анимации</strong><p style="color:var(--mut);margin:6px 0 0">Разные скелеты → нужен ретаргет (IK Rig + Retargeter). На болванке — голый Mannequin, MetaHuman = арт-слой потом.</p></div>
+    <div class="card"><strong>5. Polyart ↔ MetaHuman</strong><p style="color:var(--mut);margin:6px 0 0">Две ветки персонажа. Основная = MetaHuman (Stellar-Blade-вайб); Polyart = прототип рантайм-кастомизации. Не держать обе как основные.</p></div>
+    <div class="card"><strong>6. Ghost Replay ↔ AutoReplay</strong><p style="color:var(--mut);margin:6px 0 0">Transform vs input. Ghost Replay основной (устойчив к недетерминизму), AutoReplay только backup. Не смешивать форматы.</p></div>
+    <div class="card"><strong>7. SteamSAL ↔ лишние Steam-плагины</strong><p style="color:var(--mut);margin:6px 0 0">AdvancedSessions/EnhancedOnlineSessions тянут OSS Steam и конфликтуют при init. Нужны только лидерборды → ставим ТОЛЬКО SteamSAL.</p></div>
+    <div class="card"><strong>8. City Sample ↔ минимализм/FPS</strong><p style="color:var(--mut);margin:6px 0 0">Спроектирован под Nanite/Lumen, этап 1 их выключает. Трение на арт-слое. Whitebox на Quaternius.</p></div>
+  </div>
+</div></section>
+
+<section id="lic"><div class="wrap">
+  <h2><span class="n">21.7</span> Лицензии — правило выживания</h2>
+  <div class="card red"><span class="bad">🚨 ГЛАВНОЕ ПРАВИЛО:</span> перед любым GitHub/Fab-ассетом В КОД — проверять лицензию. <strong>GPL/AGPL/LGPL/CC-BY-SA = ЯД</strong> (копилефт открывает исходники всей игры или нельзя линковать с UE по EULA Epic). «No license» = по умолчанию копирайт = <strong>НЕЛЬЗЯ</strong>.</div>
+  <div class="grid">
+    <div class="card grn"><h3 class="t0"><span class="good">✅ Чисто для платного Steam</span></h3><ul>
+      <li><span class="lic ok">MIT/Apache/BSD</span> — линкуется с UE, продажа OK</li>
+      <li><span class="lic ok">CC0</span> — общественное достояние, без атрибуции (Polyhaven, ambientCG, Kenney, Quaternius)</li>
+      <li><span class="lic ok">Fab Standard</span> — Personal=Professional права, коммерция OK; нельзя лишь перепродавать ассет</li>
+      <li><span class="lic ok">UE-Only</span> — коммерция OK, но ТОЛЬКО в UE-проекте (City Sample, GASP)</li>
+      <li><span class="lic ok">RF</span> royalty-free — Mixamo, Sonniss (⚠️ запрет AI/ML-тренинга)</li></ul></div>
+    <div class="card red"><h3 class="t0"><span class="bad">⛔ Чёрный список</span></h3><ul>
+      <li><strong>ExtendedCharacterMovement</strong> <span class="lic no">GPL-3.0</span> — мина, выкинуто (§04)</li>
+      <li><strong>DaftMover</strong> <span class="lic warn">?</span> — лицензия не подтверждена (в старом плане ошибочно «MIT»). PBCharacterMovement замещает</li>
+      <li><strong>Villeek/MovementDemo</strong> <span class="lic warn">?</span> — готовый шаблон гонки, но лицензии нет → только референс</li>
+      <li><strong>asee5g/Character-Customization</strong> <span class="lic no">no license</span></li>
+      <li>itch-UI-киты — часто только PNG + AI-генерёжка, копирайт мутный</li></ul></div>
+  </div>
+  <div class="card cyan"><strong>Роялти UE:</strong> 5% только с дохода свыше $1M lifetime (Epic Games Store — royalty-free). На старте неактуально, в финмодель при успехе.</div>
+  <div class="card yel"><strong>📦 Склад ≠ проект:</strong> бесплатную/дедлайн-халяву Fab забирать в библиотеку свободно (навсегда, 0 затрат). Дисциплина «whitebox первым» — только про ИМПОРТ в проект. Раз в 2 недели чистить <a href="https://www.fab.com/limited-time-free">Fab Limited-Time Free</a>.</div>
 </div></section>
 
 <section id="market"><div class="wrap">
   <h2><span class="n">16-17</span> Рынок и экономика</h2>
   <div class="grid">
-    <div class="card"><h3 style="margin-top:0">Жанр продаётся</h3><ul>
-      <li>Ghostrunner 2.5М+</li><li>Ultrakill млн+</li><li>Neon White ~150к/1мес (~$3М)</li><li>Severed Steel ~400к (соло)</li></ul>
-      <p style="color:var(--mut);font-size:14px">Потолок инди ~200к–2.5М копий. Решает фил, не бюджет.</p></div>
-    <div class="card"><h3 style="margin-top:0">Финриск ~ноль</h3><ul>
-      <li>Unreal бесплатен (роялти 5% после $1M)</li><li>Steam $100 при релизе</li><li>Ассеты бесплатно</li><li>Теряешь только время</li></ul>
+    <div class="card"><h3 class="t0">Жанр продаётся</h3><ul>
+      <li>Ghostrunner 2.5М+ · Ultrakill млн+</li><li>Neon White ~150к/1мес (~$3М)</li><li>Severed Steel ~400к (соло)</li></ul>
+      <p style="color:var(--mut);font-size:14px">Потолок инди ~200к–2.5М. Решает фил, не бюджет.</p></div>
+    <div class="card"><h3 class="t0">Финриск ~ноль</h3><ul>
+      <li>Unreal бесплатен (роялти 5% после $1M)</li><li>Steam $100 при релизе · ассеты бесплатно</li><li>Теряешь только время</li></ul>
       <p style="color:var(--mut);font-size:14px">Делать НЕ бросая 1С. Параллельно.</p></div>
   </div>
+  <div class="card mag"><h3 class="t0">Монетизация — premium / buy-to-play</h3>Один платёж, Steam. 🚨 НИКАКИХ микротранзакций на статы/перки — это p2w, убивает спидран. Доп.монетизация — ТОЛЬКО косметика (0 влияния на геймплей).<br>
+    <strong>Три валюты:</strong> 💵 деньги (геймплейная: инфо/сюжет, гринд) · 🪙 шмот-валюта (гринд → массовая косметика) · 💎 донат (реал → престиж-эксклюзив косметика). Донат НЕ покупает деньги/прокачку. Без лутбоксов.</div>
 </div></section>
 
 <section id="start"><div class="wrap">
@@ -271,25 +393,28 @@ flowchart TD
   <ul class="chk">
     <li>Поставить UE 5.8</li>
     <li>Включить MCP (safe-профиль, auto-approve ВЫКЛ)</li>
-    <li>Пустой проект, greybox-коробка, стандартный манекен</li>
+    <li><strong>Git LFS настроить ДО первого ассета</strong> (.uasset/.umap бинарные)</li>
+    <li>Пустой проект (<strong>C++</strong>, нужен для PBCharacterMovement), greybox-коробка, манекен</li>
+    <li><strong>Enhanced Input</strong> + базовые ребинды (клава+мышь)</li>
     <li>Выключить Lumen/Nanite</li>
-    <li>Фиксированный таймстеп физики</li>
-    <li>Параметры мувмента наружу (DataAsset/BP)</li>
-    <li>Базовый мувсет: бег, прыжок, рывок, вал-ран, слайд, вскарабкивание/мантл</li>
+    <li>Фиксированный таймстеп (Substepping + Async Physics)</li>
+    <li>Параметры мувмента наружу (DataAsset) + тюнинг-стенд (CVars / Console Variables Editor)</li>
+    <li>Базовый мувсет на <strong>PBCharacterMovement (MIT)</strong>: бег, прыжок, рывок, вал-ран, слайд, мантл</li>
+    <li>Таймер + мгновенный рестарт (1 кнопка)</li>
     <li>Прощающие окна: coyote, jump buffer, corner correction</li>
     <li>Фидбек камеры: FOV-буст, наклон + камера 3-лица</li>
     <li>Накопление импульса + сброс + индикатор</li>
     <li><strong>Гонять и крутить, пока не вкусно</strong> ← главная задача (в тишине, без музыки)</li>
-    <li>Дать погонять 5–10 друзьям</li>
+    <li>Попробовать обе камеры. Дать погонять 5–10 друзьям</li>
   </ul>
-  <div class="card cyan"><h3 style="margin-top:0">Метрика — когда продолжать / стоп</h3>Метрики по этапам, не одна цифра. Сейчас активна только ранняя:<ul>
+  <div class="card cyan"><h3 class="t0">Метрика — когда продолжать / стоп</h3>Метрики по этапам, не одна цифра. Сейчас активна только ранняя:<ul>
     <li><strong>Болванка:</strong> тянет «ещё разок» (ты, потом друзья)</li>
     <li><strong>Первый плейбл:</strong> друзья сами перепроходят, кто-то бьёт твоё время</li></ul>
-    Релизные вишлисты (7–10к ≈ окупаемость) — поздний ориентир, в дальний ящик. Смысл метрики — знать, когда остановить проект, а не самообман.</div>
+    Релизные вишлисты (7–10к ≈ окупаемость) — поздний ориентир, в дальний ящик.</div>
 </div></section>
 
 <footer>
-  Movement Parkour Racer · концепт обновляется · UE 5.8 · 2026<br/>
+  Movement Parkour Racer · RPG-ассасин + спидран · UE 5.8 · обновлено 20.06.2026<br/>
   <span style="opacity:.6">Полный план: PLAN.md в репозитории</span>
 </footer>
 
