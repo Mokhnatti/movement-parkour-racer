@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MOVEMENT PARKOUR RACER on Steam</title>
+<style>
+:root{
+  --st-bg:#1b2838;--st-bg2:#16202d;--st-bg3:#0e1620;--st-top:#171a21;
+  --st-blue:#66c0f4;--st-tx:#c7d5e0;--st-mut:#8f98a0;--st-line:#2a3f5a;
+  --neon-c:#00f0ff;--neon-m:#ff2d95;--grn1:#a4d007;--grn2:#688f1a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:linear-gradient(180deg,#1b2838 0%,#16202d 60%,#0e1620 100%);background-attachment:fixed;color:var(--st-tx);font:14px/1.6 "Motiva Sans",Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--st-blue);text-decoration:none}
+.topbar{background:var(--st-top);border-bottom:1px solid #000;padding:0}
+.topbar .in{max-width:940px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:20px;font-size:13px}
+.topbar .logo{font-weight:800;letter-spacing:1px;color:#fff}
+.topbar .logo b{color:var(--st-blue)}
+.topbar a.nav{color:#b8b6b4}
+.topbar a.nav:hover{color:#fff}
+.wrap{max-width:940px;margin:0 auto;padding:0 16px}
+.crumb{font-size:11px;color:var(--st-mut);padding:14px 0 10px}
+.crumb a{color:#7a93a8}
+.title{font-size:26px;font-weight:700;color:#fff;letter-spacing:.5px;margin:4px 0 16px}
+.title .glow{background:linear-gradient(90deg,var(--neon-c),var(--neon-m));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.layout{display:grid;grid-template-columns:1fr 324px;gap:20px;align-items:start}
+@media(max-width:820px){.layout{grid-template-columns:1fr}}
+
+/* media */
+.media{background:#000;border-radius:4px;overflow:hidden;position:relative;aspect-ratio:16/9;border:1px solid var(--st-line)}
+.media .scene{position:absolute;inset:0;background:
+  radial-gradient(ellipse at 20% 10%,rgba(0,240,255,.25),transparent 45%),
+  radial-gradient(ellipse at 85% 90%,rgba(255,45,149,.28),transparent 45%),
+  linear-gradient(160deg,#0a1420,#10202e 50%,#0a0f18);}
+.media .grid-floor{position:absolute;inset:0;background-image:linear-gradient(rgba(0,240,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(0,240,255,.12) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(180deg,transparent 40%,#000);opacity:.7}
+.media .ctr{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px}
+.media .play{width:64px;height:64px;border-radius:50%;border:2px solid var(--neon-c);display:flex;align-items:center;justify-content:center;box-shadow:0 0 30px rgba(0,240,255,.4);margin-bottom:14px}
+.media .play::before{content:"";border-left:18px solid var(--neon-c);border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:5px}
+.media .cap{font-family:ui-monospace,monospace;color:var(--neon-c);letter-spacing:2px;font-size:12px;text-transform:uppercase}
+.media .cap2{color:var(--st-mut);font-size:12px;margin-top:6px}
+.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:6px}
+.thumb{aspect-ratio:16/9;border-radius:3px;border:1px solid var(--st-line);background:linear-gradient(135deg,#13202e,#0c1722);position:relative;overflow:hidden}
+.thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(0,240,255,.18),transparent 60%),radial-gradient(circle at 80% 80%,rgba(255,45,149,.18),transparent 60%)}
+
+/* sidebar */
+.side .capsule{aspect-ratio:32/15;border-radius:4px;overflow:hidden;border:1px solid var(--st-line);position:relative;background:linear-gradient(135deg,#0a1420,#13101e)}
+.side .capsule .cg{position:absolute;inset:0;background:radial-gradient(ellipse at 25% 20%,rgba(0,240,255,.3),transparent 50%),radial-gradient(ellipse at 80% 90%,rgba(255,45,149,.32),transparent 50%)}
+.side .capsule .cn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;font-weight:800;letter-spacing:1px;font-size:18px;color:#fff;text-shadow:0 2px 14px #000;padding:0 14px;line-height:1.15}
+.short{color:var(--st-tx);font-size:13.5px;margin:14px 0 16px;line-height:1.55}
+.meta{font-size:12px;border-top:1px solid var(--st-line);padding-top:10px}
+.meta .row{display:flex;gap:10px;padding:4px 0}
+.meta .k{color:var(--st-mut);width:96px;flex:0 0 96px}
+.meta .v{color:var(--st-tx)}
+.tagrow{margin:14px 0}
+.tag{display:inline-block;background:#293a4d;color:#aeb9c4;border-radius:3px;padding:3px 9px;font-size:11px;margin:0 4px 5px 0}
+.tag:hover{background:#3a4f66;color:#fff}
+.wishlist{display:block;text-align:center;margin-top:8px;background:linear-gradient(180deg,#7cb800,#5a8a14);color:#dff5b0;font-weight:700;font-size:15px;padding:11px;border-radius:3px;letter-spacing:.3px;border:1px solid #4d7a10}
+.wishlist:hover{filter:brightness(1.12);color:#fff;text-decoration:none}
+.wnote{text-align:center;color:var(--st-mut);font-size:11px;margin-top:7px}
+
+/* about */
+.about{background:var(--st-bg2);border:1px solid var(--st-line);border-radius:4px;margin:26px 0;padding:0}
+.about h2{background:linear-gradient(90deg,rgba(0,240,255,.12),transparent);color:#fff;font-size:14px;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;padding:12px 22px;border-bottom:1px solid var(--st-line)}
+.about .body{padding:22px}
+.lede{font-size:17px;line-height:1.7;color:#e3edf5}
+.lede b{color:#fff}
+.tagline{font-size:clamp(20px,3.4vw,28px);font-weight:800;text-align:center;margin:28px 0;line-height:1.35;color:#fff}
+.tagline .glow{background:linear-gradient(90deg,var(--neon-c),var(--neon-m));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.about p{margin:14px 0;color:var(--st-tx);line-height:1.7}
+.about h3{color:var(--neon-c);font-size:16px;margin:26px 0 8px;letter-spacing:.3px;display:flex;align-items:center;gap:9px}
+.about h3 .i{font-size:18px}
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+@media(max-width:600px){.feat{grid-template-columns:1fr}}
+.fcard{background:var(--st-bg3);border:1px solid var(--st-line);border-left:3px solid var(--neon-m);border-radius:4px;padding:14px 16px}
+.fcard b{color:#fff;display:block;margin-bottom:4px;font-size:14.5px}
+.fcard span{color:var(--st-mut);font-size:13px;line-height:1.55}
+.frow{border-top:1px solid var(--st-line);padding:14px 0;display:flex;gap:14px}
+.frow:first-of-type{border-top:none}
+.frow .ic{font-size:22px;flex:0 0 30px;text-align:center}
+.frow b{color:#fff}
+.frow .d{color:var(--st-mut);font-size:13px}
+.split{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.fac{flex:1;min-width:200px;background:var(--st-bg3);border:1px solid var(--st-line);border-radius:4px;padding:12px 14px}
+.fac .fn{font-weight:700;font-size:14px;margin-bottom:3px}
+.fac .fd{color:var(--st-mut);font-size:12.5px}
+.r{color:#ff6b6b}.y{color:#ffd24d}.b{color:var(--neon-c)}
+.pulln{border-left:3px solid var(--neon-c);padding:6px 0 6px 16px;color:#9fb3c2;font-style:italic;margin:16px 0}
+.mature{background:var(--st-bg2);border:1px solid var(--st-line);border-radius:4px;padding:16px 20px;margin:20px 0;font-size:12px;color:var(--st-mut)}
+.poptag{margin:24px 0}
+.poptag .h{color:var(--st-mut);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+footer{text-align:center;color:var(--st-mut);font-size:12px;padding:30px 16px 50px;border-top:1px solid var(--st-line);margin-top:30px}
+.disc{background:rgba(255,45,149,.07);border:1px solid var(--st-line);border-left:3px solid var(--neon-m);border-radius:4px;padding:10px 16px;font-size:12px;color:#a9b6c2;margin:18px 0}
+</style>
+</head>
+<body>
+
+<div class="topbar"><div class="in">
+  <span class="logo">MOVEMENT<b>//</b>RACER</span>
+  <a class="nav" href="index.html">Простое описание</a>
+  <a class="nav" href="dev.html">Технический план</a>
+  <span class="nav" style="color:#fff;margin-left:auto">▸ Steam-страница (концепт)</span>
+</div></div>
+
+<div class="wrap">
+  <div class="crumb"><a href="index.html">Все игры</a> &nbsp;›&nbsp; Экшен &nbsp;›&nbsp; Инди &nbsp;›&nbsp; <span style="color:#c7d5e0">Movement Parkour Racer</span></div>
+  <div class="title">MOVEMENT PARKOUR RACER <span class="glow">— призрак на скорости</span></div>
+
+  <div class="layout">
+    <!-- MEDIA -->
+    <div>
+      <div class="media">
+        <div class="scene"></div><div class="grid-floor"></div>
+        <div class="ctr">
+          <div class="play"></div>
+          <div class="cap">// announce trailer</div>
+          <div class="cap2">геймплей появится по мере разработки</div>
+        </div>
+      </div>
+      <div class="thumbs">
+        <div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div><div class="thumb"></div>
+      </div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="side">
+      <div class="capsule"><div class="cg"></div><div class="cn">MOVEMENT<br>PARKOUR RACER</div></div>
+      <p class="short">Гиперскоростной ассасин-киборг в неоновом мегаполисе. Берёшь контракт, срываешься с крыши и убиваешь на полной скорости — призрак, которого замечают только мёртвым.</p>
+      <div class="meta">
+        <div class="row"><span class="k">Жанр</span><span class="v">Экшен, Инди, Паркур, Стелс-экшен</span></div>
+        <div class="row"><span class="k">Разработчик</span><span class="v">Mokhnatti (соло)</span></div>
+        <div class="row"><span class="k">Издатель</span><span class="v">Mokhnatti</span></div>
+        <div class="row"><span class="k">Выход</span><span class="v">Когда будет готово</span></div>
+        <div class="row"><span class="k">Платформа</span><span class="v">PC · Steam</span></div>
+        <div class="row"><span class="k">Движок</span><span class="v">Unreal Engine 5.8</span></div>
+      </div>
+      <div class="tagrow" style="margin-top:14px">
+        <span class="tag">Паркур</span><span class="tag">Киберпанк</span><span class="tag">Скорость</span>
+        <span class="tag">Спидран</span><span class="tag">Ассасин</span><span class="tag">От 3 лица</span>
+        <span class="tag">Стильно</span><span class="tag">Лидерборды</span>
+      </div>
+      <a class="wishlist" href="#">➕ Добавить в желаемое</a>
+      <div class="wnote">Концепт-страница. Кнопка пока ведёт в мечту.</div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="about">
+    <h2>Об игре</h2>
+    <div class="body">
+      <p class="lede">Город не спит — он горит неоном на сто этажей вверх, и где-то там, наверху, ждёт твоя цель. Ты не крадёшься в тенях и не целишься из укрытия. <b>Ты приходишь со скоростью света.</b> Бежишь по стене, прыгаешь между небоскрёбами, влетаешь в окно прямо посреди вечеринки, делаешь своё дело — и вылетаешь в другое окно, не сбавив ни километра в час.</p>
+
+      <div class="tagline">Скорость — это и есть твоя <span class="glow">невидимость</span>.</div>
+
+      <p>Ты несёшься так быстро, что охрана видит только труп. К тому моменту, как кто-то поднимет тревогу, ты уже на соседней крыше. <b>Призрак, которого замечают только мёртвым.</b></p>
+
+      <h3><span class="i">🏃</span> Убивай на ходу, а не из-за угла</h3>
+      <p>Каждый контракт — это один безупречный росчерк движения. Тебе называют цель и где она примерно сейчас. Дальше — твоё дело: ты выбираешь маршрут, читаешь высоту, копишь скорость на спусках. Чем чище линия — тем быстрее летишь. Влетел сквозь стекло, один точный удар на скорости — и ты уже снаружи. Снизу тебя только-только заметили.</p>
+
+      <h3><span class="i">🎯</span> Цель живая. Твоя скорость решает всё</h3>
+      <p>Жертва не стоит и не ждёт. У неё свой распорядок — она курит на балконе, уходит в зал, садится в лифт. Был быстр — возьмёшь её одну, идеально, ранг S. Замешкался — она ускользнула вглубь здания, и ты на лету перестраиваешь дугу, чтобы перехватить у другого окна. Каждая секунда — это этаж, на котором ты её теряешь.</p>
+
+      <h3><span class="i">🤫</span> Тихо как тень или громко как буря</h3>
+      <p>Можно отработать чисто и методично — никто и не вздрогнет. А можно ломануться напролом: поднять тревогу, спугнуть цель в бег по предсказуемому пути и эффектно подрезать её в прыжке через атриум. Рискованно. Грязно. Красиво. Тревога — не наказание, а инструмент.</p>
+
+      <div class="feat">
+        <div class="fcard"><b>💣 Не только нож</b><span>Подложи бомбу в машину и свали до взрыва. Подстрой несчастный случай. Укради данные и унеси ноги. Каждый контракт играется по-своему.</span></div>
+        <div class="fcard"><b>⚡ Скорость заработана</b><span>Импульс копится за чистоту прохождения. Высота превращается в скорость на спуске. Игра не даёт тебе быть быстрым — она тебя этому учит.</span></div>
+        <div class="fcard"><b>🤖 Соперники в эфире</b><span>Контракт оспаривают другие наёмники. Догони — и сними конкурента со спины на скорости, пока он не засёк тебя первым.</span></div>
+        <div class="fcard"><b>👻 Призрак чемпиона</b><span>Рядом бежит лучший заезд мира. Обгонишь его — или хотя бы поймёшь, где он тебя сделал.</span></div>
+      </div>
+
+      <h3><span class="i">🩸</span> Месть, у которой есть скорость</h3>
+      <p>Когда-то ты был лучшим — независимым номером один, к которому шли все. Потом тебя <b>предал тот единственный, кому ты доверял</b>: выжег твою кибернетику, стёр имя и занял твоё место. Ты очнулся на самом дне, в утильном корпусе. Теперь ты поднимаешься заново — заказ за заказом, имплант за имплантом, покупая по кусочкам правду. А в конце — последний контракт. По тому самому человеку.</p>
+
+      <h3><span class="i">🏙️</span> Выбери, на кого работать</h3>
+      <p>Ты фрилансер. Три силы держат город, и у каждой свой стиль, своя музыка, свои жертвы — и своя мораль. За кого работаешь, тем и становишься. И у каждого пути своя концовка.</p>
+      <div class="split">
+        <div class="fac"><div class="fn r">🔴 Сопротивление</div><div class="fd">Бунт против корпораций. Цели — продажные боссы и политики. Панк, граффити, злая гитара.</div></div>
+        <div class="fac"><div class="fn y">🟡 Якудза</div><div class="fd">Деньги и бизнес. Цели — должники и те, кто мешает делам. Азиатский неон, золото, тату.</div></div>
+        <div class="fac"><div class="fn b">🔵 Корпорация</div><div class="fd">Власть и холодный расчёт. Иногда цель — хороший человек, что просто мешает. Стекло и лоск.</div></div>
+      </div>
+
+      <h3><span class="i">📈</span> Твой герой растёт, и у тебя есть дом</h3>
+      <p>Прокачивай персонажа и сам решай, каким убийцей быть: качай разгон и прыжок, цепляйся крюком-кошкой за здания, учись проскальзывать за спиной охраны как ветер. А ещё у тебя есть берлога: в начале — конура с окном на помойку, в финале — пентхаус, из которого <b>весь город виден как на ладони</b>. И меняется она под ту банду, на которую ты работаешь.</p>
+
+      <h3><span class="i">🏆</span> И ты никогда не один</h3>
+      <p>Один контракт можно пройти сотней способов — и всегда найдётся тот, кто сделал это быстрее и красивее. Соревнуйся в таблицах рекордов, пересматривай чужие заезды и подсматривай маршруты, собирай собственные контракты для друзей и наряжай героя в десятки образов. Всё, что ты делаешь, можно сделать ещё чище.</p>
+
+      <div class="pulln">«Ну ещё разок. Вот теперь я знаю, как срезать тот спуск.»</div>
+
+      <div class="poptag">
+        <div class="h">Популярные метки для этого продукта</div>
+        <span class="tag">Паркур</span><span class="tag">Киберпанк</span><span class="tag">Стелс</span><span class="tag">Скоростной бег</span>
+        <span class="tag">Ассасин</span><span class="tag">Спидран</span><span class="tag">Стильно</span><span class="tag">Соревновательная</span>
+        <span class="tag">Атмосфера</span><span class="tag">Сложная</span><span class="tag">Неон</span><span class="tag">Экшен от 3 лица</span>
+      </div>
+
+      <div class="mature">
+        <b style="color:#c7d5e0">Для кого эта игра.</b> Для тех, кто не любит тормозить. Кто залипал в Ghostrunner, Mirror's Edge, Hitman и Cyberpunk 2077 и проходил их агрессивно, на скорости. Кто ловит кайф от чистого движения, мастерства и «я смогу красивее».<br><br>
+        <b style="color:#c7d5e0">Зрелый контент.</b> Стилизованное насилие, тематика заказных убийств. Без чернухи — про красоту движения, не про жестокость.
+      </div>
+
+      <div class="disc">⚙️ Это <b>концепт-страница</b> личного проекта, а не реальная карточка Steam. Игра в ранней разработке (UE 5.8, соло, без спешки, параллельно с основной работой). Скриншоты и трейлер появятся, когда будет что показать. Главное сейчас — чтобы просто <i>бежать и нестись</i> было кайфово само по себе.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Movement Parkour Racer · концепт-витрина в стиле Steam · Unreal Engine 5.8 · 2026<br>
+  <span style="opacity:.6">Сделано с любовью к скорости · <a href="index.html">простое описание</a> · <a href="dev.html">технический план</a></span>
+</footer>
+
+</body>
+</html>
